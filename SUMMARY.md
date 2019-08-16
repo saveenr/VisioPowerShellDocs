@@ -67,8 +67,6 @@
     * [Sample Directed Graph XML 2](automatic-diagrams/directed-graphs-from-xml/sample-directed-graph-xml-2.md)
     * [Sample Directed Graph XML 3](automatic-diagrams/directed-graphs-from-xml/sample-directed-graph-xml-3.md)
     * [Sample Directed Graph XML 4](automatic-diagrams/directed-graphs-from-xml/sample-directed-graph-xml-4.md)
-* [Windows](windows/README.md)
-  * [Format-VisioWindow](windows/window-zoom.md)
 * [Selection](selection/README.md)
   * [Export-VisioSelection](selection/export-the-current-selection.md)
   * [Select-VisioShape](selection/selecting-shapes.md)
@@ -98,6 +96,11 @@
     * [Use PowerShell 2 with .NET Framework 2.0](technical-notes/powershell/use-powershell-version-2-with-visiops.md)
   * [VisioScriptingClient](technical-notes/getting-the-current-scriptingsession.md)
   * [Use VisioAutomation](technical-notes/use-visioautomation.md)
+
+## Cmdlets
+
+* [Windows](cmdlets/windows/README.md)
+  * [Format-VisioWindow](cmdlets/windows/window-zoom.md)
 
 ## Developer Info
 
