@@ -100,6 +100,7 @@
 * [Windows](cmdlets/windows/README.md)
   * [Format-VisioWindow](cmdlets/windows/window-zoom.md)
 * [Text](cmdlets/text/README.md)
+  * [Get-VisioText \[TBD\]](cmdlets/text/get-visiotext.md)
   * [Set-VisioText](cmdlets/text/set-visiotext.md)
 
 ## Developer Info
