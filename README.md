@@ -4,7 +4,7 @@ description: This documentation is being updated to cover Visio PowerShell Versi
 
 # Introduction
 
-The **Visio PowerShell** module - **VisioPS** - automates and simplifies common tasks for Visio 2010 and later versions. VisioPS **feels natural for PowerShell users** because it maps standard PowerShell verbs and idioms to Visio concepts.
+The **Visio PowerShell** module - **VisioPS** - automates and simplifies common tasks for Visio 2010 and later versions. VisioPS **feels natural for PowerShell users** because it maps standard PowerShell verbs and idioms to Visio concepts..
 
 ### See it in action <a id="see-it-in-action"></a>
 
