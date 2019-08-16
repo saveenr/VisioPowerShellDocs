@@ -98,8 +98,11 @@
     * [Use PowerShell 2 with .NET Framework 2.0](technical-notes/powershell/use-powershell-version-2-with-visiops.md)
   * [VisioScriptingClient](technical-notes/getting-the-current-scriptingsession.md)
   * [Use VisioAutomation](technical-notes/use-visioautomation.md)
-* [Developer Information](developer-information/README.md)
-  * [Debug with Visual Studio](developer-information/debug-with-visual-studio.md)
-  * [Release history](developer-information/release-history.md)
-  * [Publishing to PowerShell Gallery](developer-information/publishing-to-powershell-gallery.md)
+
+## Developer Info
+
+* [Release history](developer-info/release-history.md)
+* [Publishing to PowerShell Gallery](developer-info/publishing-to-powershell-gallery.md)
+* [Debug with Visual Studio](developer-info/debug-with-visual-studio.md)
+* [Untitled](developer-info/untitled.md)
 
