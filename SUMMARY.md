@@ -104,5 +104,4 @@
 * [Release history](developer-info/release-history.md)
 * [Publishing to PowerShell Gallery](developer-info/publishing-to-powershell-gallery.md)
 * [Debug with Visual Studio](developer-info/debug-with-visual-studio.md)
-* [Untitled](developer-info/untitled.md)
 
