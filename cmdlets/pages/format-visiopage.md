@@ -28,7 +28,7 @@ Format-VisioPage -Orientation Landscape
 
 Visio has a feature on the DESIGN tab that can re-layout objects on a page.
 
-![](../.gitbook/assets/snap00010.png)
+![](../../.gitbook/assets/snap00010.png)
 
 ```text
 Set-StrictMode -Version 2
@@ -58,5 +58,5 @@ $ls.AvenueSizeY = 0.5
 Format-VisioPage -LayoutStyle $ls
 ```
 
-![](../.gitbook/assets/snap00012.png)
+![](../../.gitbook/assets/snap00012.png)
 

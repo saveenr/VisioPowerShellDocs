@@ -19,5 +19,5 @@ Connect-VisioShape -From $shape_0 -To $shape_1 -Master $dyncon_m
 
 ```
 
-![](../.gitbook/assets/snap00005.png)
+![](../../.gitbook/assets/snap00005.png)
 
