@@ -87,6 +87,8 @@
   * [Uninstall VisioPS](installation-1/uninstall-visiops.md)
   * [Detect if VisioPS is installed](installation-1/detect-visiops.md)
 * [Technical Notes](technical-notes/README.md)
+  * [Links](technical-notes/links.md)
+  * [Related projects](technical-notes/related-project.md)
   * [Visio](technical-notes/visio/README.md)
     * [Visio version compatibility](technical-notes/visio/version-compatibility.md)
     * [Create a new Visio application COM object](technical-notes/visio/untitled.md)
