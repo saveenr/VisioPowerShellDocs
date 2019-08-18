@@ -6,21 +6,12 @@
 Get-VisioDocument -Name *
 ```
 
-#### Get the active document
-
-```text
-Get-VisioDocument -ActiveDocument
-```
-
 #### Get all documents based on the document name <a id="get-all-documents-based-on-the-document-name"></a>
 
 ```text
-
 # To find a specific document with name "DocumentFoo"
 Get-VisioDocument -Name "DocumentFoo"
 ```
-
-
 
 #### Get the active document <a id="get-the-active-document"></a>
 
@@ -38,7 +29,7 @@ Set-VisioDocument $doc
 Set-VisioDocument "Drawing5"
 ```
 
-#### Checking is the Active Document is valid <a id="checking-is-the-active-document-is-valid"></a>
+#### Checking if the Active Document is valid <a id="checking-is-the-active-document-is-valid"></a>
 
 Sometimes you'll need to perform an action only if a drawing is open. The easy way to check is to use Test-VisioDocument
 

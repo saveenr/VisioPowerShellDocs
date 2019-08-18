@@ -1,24 +1,22 @@
 # Close-VisioDocument
 
-**Closing the active document**
+#### NOTE: Unsaved documents will be closed without prompting
+
+To simplify automation, the Close-VisioDocument cmdlet will close any specific document - even if it has unsaved changes.
+
+#### **Close the active document** <a id="closing-a-specific-document"></a>
 
 ```text
 Close-VisioDocument
 ```
 
-#### Unsaved documents will be closed without prompting <a id="forcing-a-document-to-close"></a>
+#### Close a specific document <a id="closing-a-specific-document"></a>
 
-To simplify automation, the Close-VisioDocument cmdlet will close any specific document - even if it has unsaved changes.
-
-#### Closing a specific document <a id="closing-a-specific-document"></a>
-
-You can specify the document object to close
-
-```text
+```
 Close-VisioDocument -Document $doc1
 ```
 
-#### Closing multiple documents <a id="closing-multiple-documents"></a>
+#### Close multiple documents <a id="closing-multiple-documents"></a>
 
 ```text
 Close-VisioDocument -Document $doc1,$doc2 
