@@ -23,6 +23,7 @@
     * [Sample Directed Graph XML 3](automatic-diagrams/directed-graphs-from-xml/sample-directed-graph-xml-3.md)
     * [Sample Directed Graph XML 4](automatic-diagrams/directed-graphs-from-xml/sample-directed-graph-xml-4.md)
 * [Samples](samples/README.md)
+  * [Geometry primitves](samples/geometry-primitves.md)
   * [Draw grid](samples/draw-grid.md)
   * [Draw all fill patterns - slow](samples/draw-all-fill-patterns.md)
   * [Draw fill patterns - fast](samples/draw-grid-2.md)
