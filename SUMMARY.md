@@ -101,6 +101,15 @@
 * [Text](cmdlets/text/README.md)
   * [Get-VisioText \[TBD\]](cmdlets/text/get-visiotext.md)
   * [Set-VisioText](cmdlets/text/set-visiotext.md)
+* [Visio](cmdlets/visio/README.md)
+  * [Out-Visio](cmdlets/visio/out-visio.md)
+  * [Redo-Visio](cmdlets/visio/redo-visio.md)
+  * [Undo-Visio](cmdlets/visio/undo-visio.md)
+* [VisioApplication](cmdlets/visioapplication/README.md)
+  * [Close-VisioApplication](cmdlets/visioapplication/close-visioapplication.md)
+  * [Get-VisioApplication](cmdlets/visioapplication/get-visioapplication.md)
+  * [New-VisioApplication](cmdlets/visioapplication/new-visioapplication.md)
+  * [Test-VisioApplication](cmdlets/visioapplication/test-visioapplication.md)
 
 ## Developer Info
 
