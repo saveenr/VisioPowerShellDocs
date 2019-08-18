@@ -1,6 +1,6 @@
 # Connect-VisioShape
 
-Select two shapes and then use `New-VisioConnection`
+Select two shapes and then use `Connect-VisioShape`
 
 ```text
 Import-Module Visio
