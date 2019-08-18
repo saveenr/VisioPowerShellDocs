@@ -1,6 +1,6 @@
 # Release history
 
-**Version 4.0.0** \(2019/08/14\) Significant cleanup of cmdlets
+**Version 4.0.0** \(2019/08/14\) This version is a major cleanup of how the cmdlets work to make them more consistent and reliable. It breaks backward compatibility with the 3.x versions.
 
 **Version 3.0.1** \(2019/03/09\) Updated package metadata
 
