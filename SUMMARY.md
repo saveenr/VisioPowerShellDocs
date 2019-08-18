@@ -90,6 +90,7 @@
   * [Get-UserDefinedCell](cmdlets/user-defined-cells/get-userdefinedcell.md)
   * [Set-VisioUserDefinedCell](cmdlets/user-defined-cells/remove-visiocustomproperty.md)
   * [Remove-UserDefinedCell](cmdlets/user-defined-cells/delete-user-defined-cells.md)
+* [Master](cmdlets/master.md)
 * [Selection](cmdlets/selection/README.md)
   * [Export-VisioSelection](cmdlets/selection/export-the-current-selection.md)
   * [Select-VisioShape](cmdlets/selection/selecting-shapes.md)
@@ -110,6 +111,10 @@
   * [Get-VisioApplication](cmdlets/visioapplication/get-visioapplication.md)
   * [New-VisioApplication](cmdlets/visioapplication/new-visioapplication.md)
   * [Test-VisioApplication](cmdlets/visioapplication/test-visioapplication.md)
+* [ConnectionPoint](cmdlets/connectionpoint.md)
+* [Container](cmdlets/container.md)
+* [Container](cmdlets/container-1.md)
+* [Layer](cmdlets/layer.md)
 
 ## Developer Info
 
