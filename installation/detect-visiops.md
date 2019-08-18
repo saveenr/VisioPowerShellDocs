@@ -1,18 +1,22 @@
 # Detect if VisioPS is installed
 
-#### Detect if Visio PowerShell is installed <a id="detect-if-visio-powershell-is-installed"></a>
-
 ```text
-Get-Module -ListAvailable -Name Visio  | Select Path
+Import-Module visio
+
+$module = Get-Module -Name "Visio"
+if ($module -eq $null)
+{
+    Write-Host "VisioPS" not installed
+}
+else
+{
+    $modpath = $module.Path
+    $modver = $module.Version
+    $modfolder = Split-Path $modpath -Parent
+    Write-Host VisioPS `($modver`) is installed at `"$modfolder`"
+}
 ```
 
-If it is installed it will show you exactly where. In the example below you can see it is installed for a specific user.
+  
 
-```text
-Path
-----
-C:\Users\saveenr\Documents\WindowsPowerShell\Modules\Visio\2.0.0\Visio.psd1
-```
-
-####   <a id="uninstalling-the-module"></a>
 
