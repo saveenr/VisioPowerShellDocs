@@ -9,7 +9,6 @@ Get-VisioApplication
 New-VisioApplication       
 Test-VisioApplication      
 Get-VisioClient            
-Get-VisioConnectionPoint   
 New-VisioContainer         
 Get-VisioControl           
 New-VisioControl           
