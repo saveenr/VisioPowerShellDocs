@@ -53,7 +53,6 @@
   * [Save-VisioDocument](cmdlets/documents/save-visiodocument.md)
 * [ConnectionPoint](cmdlets/connectionpoint.md)
 * [Container](cmdlets/container.md)
-* [Container](cmdlets/container-1.md)
 * [Custom properties](cmdlets/custom-properties/README.md)
   * [Get-VisioCustomProperty](cmdlets/custom-properties/get-visiocustomproperty.md)
   * [Remove-VisioCustomProperty](cmdlets/custom-properties/remove-visiocustomproperty.md)
