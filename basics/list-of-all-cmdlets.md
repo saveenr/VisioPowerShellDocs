@@ -1,13 +1,13 @@
 # List of all cmdlets
 
 ```text
-Out-Visio                  
-Redo-Visio                 
-Undo-Visio                 
 Close-VisioApplication     
 Get-VisioApplication       
 New-VisioApplication       
+Out-VisioApplication
+Redo-VisioApplication                 
 Test-VisioApplication      
+Undo-VisioApplication      
 Get-VisioClient            
 New-VisioContainer         
 Get-VisioControl           
