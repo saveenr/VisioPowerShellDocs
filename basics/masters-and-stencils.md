@@ -29,7 +29,7 @@ $points = @(
     )
 $shapes = New-VisioShape -Master $master -Position $points
 
-Set-VisioText "Hello World" -Shape $shapes
+Set-VisioText -Text "Hello World" -Shape $shapes
 ```
 
 **Dropping a multiple masters, multiple times**
@@ -46,7 +46,7 @@ $points = @(
     )
 $shape = New-VisioShape -Master $masters -Position $points
 
-Set-VisioText "Hello World" -Shape $shape
+Set-VisioText -Text "Hello World" -Shape $shape
 ```
 
 The `New-VisioShape` cmdlet returns a list of integers - these are the shape ids of the shapes that were created as a result of the drop operation.
