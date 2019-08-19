@@ -2,6 +2,8 @@
 
 * [Introduction](README.md)
 * [Quick start](quick-start.md)
+* [Links](links.md)
+* [Similar projects](similar-projects.md)
 * [Basics](basics/README.md)
   * [Context-sensitivity](basics/context-sensitivity.md)
   * [Masters and Stencils](basics/masters-and-stencils.md)
