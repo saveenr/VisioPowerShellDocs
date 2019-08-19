@@ -16,7 +16,7 @@ $xmldoc = @"
 $filename = "d:\model.xml"
 $xmldoc | out-file $filename
 $model = Import-VisioModel -Filename $filename
-$model | Out-Visio
+$model | Out-VisioApplication
 
 ```
 

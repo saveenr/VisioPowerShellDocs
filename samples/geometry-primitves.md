@@ -6,9 +6,9 @@ function vpoint([double] $x,[double] $y)
     New-Object VisioAutomation.Geometry.Point($x,$y)
 }
 
-function vrect([double] $x0,[double] $y0, [double] $x1,[double] $y1)
+function vrect([double] $left,[double] $bottom, [double] $right,[double] $top)
 {
-    New-Object VisioAutomation.Geometry.Rectangle($x0,$y0,$x1,$y1)
+    New-Object VisioAutomation.Geometry.Rectangle($left,$bottom,$right,$top)
 }
 
 

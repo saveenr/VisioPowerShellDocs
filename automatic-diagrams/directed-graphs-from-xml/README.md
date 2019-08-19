@@ -6,7 +6,7 @@
 
 ```text
 $dg = Import-VisioModel c:\foo.xml
-$dg | Out-Visio
+$dg | Out-VisioApplication
 ```
 
 \*\*\*\*
