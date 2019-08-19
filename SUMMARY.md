@@ -104,7 +104,7 @@
   * [Set-VisioText](cmdlets/text/set-visiotext.md)
 * [Visio](cmdlets/visio/README.md)
   * [Out-Visio](cmdlets/visio/out-visio.md)
-  * [Redo-Visio](cmdlets/visio/redo-visio.md)
+  * [Redo-VisioApplication](cmdlets/visio/redo-visio.md)
   * [Undo-Visio](cmdlets/visio/undo-visio.md)
 * [VisioApplication](cmdlets/visioapplication/README.md)
   * [Close-VisioApplication](cmdlets/visioapplication/close-visioapplication.md)
