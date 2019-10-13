@@ -1,5 +1,5 @@
 ---
-description: This documentation is being updated to cover Visio PowerShell Version 4.2.0
+description: This documentation is being updated to cover Visio PowerShell Version 4.4.0
 ---
 
 # Introduction
