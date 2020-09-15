@@ -10,8 +10,6 @@ Use the `Install-Module` cmdlet to install VisioPS from the [**the PowerShell Ga
 Install-Module Visio -Scope CurrentUser    
 ```
 
-
-
 If you are new to PowerShell, run these two commands first. It will assist in debugging your scripts.
 
 ```text
@@ -19,7 +17,7 @@ Set-StrictMode -Version 2
 $ErrorActionPreference = "Stop"
 ```
 
-The following script introduces many basic concepts.
+The following script introduces several basic concepts.
 
 ```text
 Import-Module Visio
@@ -42,7 +40,7 @@ Here's what's happening in that script:
 * `New-VisioApplication` starts Visio
 * `New-VisioDocument` creates a new Visio document - this document will have one page with no shapes on it
 * `Open-VisioDocument` loads the "Basic Shapes" stencil
-* `Get-VisioMaster` retrieves a the "rectangle" master from the Basic Shapes stencil
+* `Get-VisioMaster` retrieves a the "rectangle" master from the Basic Shapes stencil 
 * The variable `$p` is defined to be geometric point built from `New-Object VisioAutomation.Geometry.Point(4,5)`
 * `New-VisioShape` creates a shape based by "dropping" the "Rectangle" master on the page at the position specified by `$points`- the units are always in inches. This shape will be selected once it is drawn.
 * `Set-VisioText` sets the text of the active selection - which will be the shape that was dropped in the previous step
