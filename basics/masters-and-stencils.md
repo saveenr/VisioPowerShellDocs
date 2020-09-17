@@ -4,7 +4,7 @@
 
 #### Masters and stencils <a id="masters-and-stencils"></a>
 
-The recommended way to get shapes on a page is to _drop_ a _master_ from a _stencil_.
+The recommended way to get shapes on a page is to drop a **master** from a **stencil**.
 
 **Dropping a master**
 
