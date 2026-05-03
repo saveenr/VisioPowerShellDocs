@@ -5,9 +5,9 @@
 These cmdlets work with the ShapeSheet of pages:
 
 ```
-New-VisioShapeCells
+New-VisioPageCells
 Get-VisioPageCells
-Set-VisioShapeCells
+Set-VisioPageCells
 ```
 
 #### Working with page cells <a href="#working-with-page-cells" id="working-with-page-cells"></a>
