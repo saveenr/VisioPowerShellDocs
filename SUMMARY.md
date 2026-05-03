@@ -12,7 +12,7 @@
   * [Create pages](basics/create-pages.md)
   * [Enumerate shapes](basics/enumerate-shapes.md)
   * [Bound Visio application](basics/bound-visio-application.md)
-  * [Close Visio applications](basics/get-userdefinedcell.md)
+  * [Close Visio applications](basics/close-visio-applications.md)
   * [List cmdlets](basics/list-cmdlets.md)
   * [List of all cmdlets](basics/list-of-all-cmdlets.md)
   * [Get help for a cmdlet](basics/get-help-for-a-cmdlet.md)
