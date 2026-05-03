@@ -1,7 +1,7 @@
-# Get-UserDefinedCell
+# Get-VisioUserDefinedCell
 
 
 
 ```
-Get-UserDefinedCell
+Get-VisioUserDefinedCell
 ```

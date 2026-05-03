@@ -1,7 +1,7 @@
-# Remove-UserDefinedCell
+# Remove-VisioUserDefinedCell
 
 
 
 ```
-Remove-UserDefinedCell Foo
+Remove-VisioUserDefinedCell Foo
 ```
