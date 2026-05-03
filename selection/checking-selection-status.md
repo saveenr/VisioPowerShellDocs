@@ -1,0 +1,10 @@
+# Check if shapes are selected
+
+The `Test-VisioSelectedShapes` cmdlet returns $true if there are **any selected shapes** available in the active document.
+
+```
+If (Test-VisioSelectedShapes)
+{
+    # do something  
+}
+```
