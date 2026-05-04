@@ -1,44 +1,74 @@
 # Get-VisioPage
 
-### Enumerate all pages from the active document
+The **Get-VisioPage** cmdlet returns one or more pages from a Visio document. With no arguments it returns every page in the active document; pass `-ActivePage` for the currently-active one, `-Name` to filter by page name (wildcards supported), or `-ID` to look up pages by their numeric Visio ID. The optional `-Document` switches the source document away from the active one.
 
+## Syntax
+
+```powershell
+# All pages (default), or by name
+Get-VisioPage [[-Name] <String[]>] [-Document <Document>]
+
+# By Visio page ID
+Get-VisioPage [-ID <Int32[]>] [-Document <Document>]
+
+# Just the active page
+Get-VisioPage [-ActivePage] [-Document <Document>]
 ```
+
+## Parameters
+
+| Parameter | Type | Required | Parameter set | Description |
+| --- | --- | --- | --- | --- |
+| `-Name` | `String[]` | No (positional) | pagebyname | One or more page names. Wildcards (`*`, `?`) are supported. |
+| `-ID` | `Int32[]` | No | pagebyid | One or more numeric Visio page IDs. |
+| `-ActivePage` | `SwitchParameter` | No | active | Return only the active page. |
+| `-Document` | `Document` | No | All | The document to search. If omitted, the active document is used. |
+
+## Examples
+
+### Get every page in the active document
+
+```powershell
 $pages = Get-VisioPage
 ```
 
-#### Enumerate all pages from the active document that have a specific name <a href="#get-all-pages-from-active-document-that-have-a-specific-name" id="get-all-pages-from-active-document-that-have-a-specific-name"></a>
+### Get a page by name
 
-```
+```powershell
 $pages = Get-VisioPage "Page-1"
 ```
 
-#### Enumerate all pages from the active document using wildcards <a href="#using-wildcards" id="using-wildcards"></a>
+### Find pages by name with wildcards
 
-```
+```powershell
 $pages = Get-VisioPage "*foo"
 ```
 
-#### Get the active page <a href="#get-the-active-page-from-the-active-document" id="get-the-active-page-from-the-active-document"></a>
+### Get the active page
 
-```
+```powershell
 $page = Get-VisioPage -ActivePage
 ```
 
-### Set the active page
+### Get pages by Visio ID
 
-```
-# By name
-Set-VisioPage -Name "Mypage"
-
-# Using a reference to a specific page
-Set-VisioPage -Page $p
+```powershell
+$pages = Get-VisioPage -ID 1,3
 ```
 
-### Set a new active page relative to the current active page <a href="#set-the-active-page-relative-to-the-active-page" id="set-the-active-page-relative-to-the-active-page"></a>
+### Switch the active page
 
+Use `Select-VisioPage` to make a different page the active one.
+
+```powershell
+$page = Get-VisioPage "Page-2"
+Select-VisioPage -Page $page
 ```
-Set-VisioPage -Direction First
-Set-VisioPage -Direction Last
-Set-VisioPage -Direction Next
-Set-VisioPage -Direction Previous
-```
+
+## See also
+
+* [New-VisioPage](new-visiopage.md)
+* [Remove-VisioPage](remove-visiopage.md)
+* [Format-VisioPage](format-visiopage.md)
+* [Export-VisioPage](export-visiopage.md)
+* [Measure-VisioPage](measure-visiopage.md)

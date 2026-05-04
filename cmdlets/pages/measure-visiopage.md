@@ -1,8 +1,22 @@
 # Measure-VisioPage
 
-The `Measure-VisioPage` cmdlet returns dimension records for one or more pages &mdash; width, height, margins, and other layout-relevant numbers. The output is a list of `PageDimensions` objects, one per page.
+The **Measure-VisioPage** cmdlet returns dimension records for one or more pages &mdash; width, height, margins, and other layout-relevant numbers. The output is a list of `PageDimensions` objects, one per page.
 
 When `-Page` is omitted, the cmdlet measures the active page.
+
+## Syntax
+
+```powershell
+Measure-VisioPage [-Page <Page[]>]
+```
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `-Page` | `Page[]` | No | The page(s) to measure. If omitted, the active page is used. |
+
+## Examples
 
 ### Measure the active page
 
@@ -25,7 +39,7 @@ $dims = Measure-VisioPage -Page (Get-VisioPage)
 $dims | Format-Table
 ```
 
-### See also
+## See also
 
 * [Get-VisioPage](get-visiopage.md)
 * [Format-VisioPage](format-visiopage.md)

@@ -1,8 +1,22 @@
 # New-VisioPageCells
 
-The `New-VisioPageCells` cmdlet creates a blank `PageCells` object whose properties map to ShapeSheet cells on a page's PageSheet (size, margins, scale, layout, print setup, etc.). Set the properties you care about and pass the object to [`Set-VisioPageCells`](set-visiopagecells.md) to apply it.
+The **New-VisioPageCells** cmdlet creates a blank `PageCells` object whose properties map to ShapeSheet cells on a page's PageSheet (size, margins, scale, layout, print setup, etc.). Set the properties you care about and pass the object to [Set-VisioPageCells](set-visiopagecells.md) to apply it.
 
 The cmdlet does not modify the document &mdash; it only constructs an in-memory cells object.
+
+## Syntax
+
+```powershell
+New-VisioPageCells [-Count <Int32>]
+```
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `-Count` | `Int32` | No | If supplied, returns an array of `Count` empty `PageCells` objects. If omitted, returns a single object. |
+
+## Examples
 
 ### Create one PageCells object
 
@@ -36,7 +50,7 @@ $cells = New-VisioPageCells
 $cells | Select-Object *
 ```
 
-### See also
+## See also
 
 * [Set-VisioPageCells](set-visiopagecells.md)
 * [PageCells](../pagecells.md)

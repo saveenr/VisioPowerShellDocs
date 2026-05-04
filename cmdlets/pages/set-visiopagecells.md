@@ -1,12 +1,28 @@
 # Set-VisioPageCells
 
-The `Set-VisioPageCells` cmdlet writes a `PageCells` object (or an array of them) to the PageSheet of one or more pages. Use it together with [`New-VisioPageCells`](new-visiopagecells.md), which constructs the cells object you populate and pass in.
+The **Set-VisioPageCells** cmdlet writes a `PageCells` object (or an array of them) to the PageSheet of one or more pages. Use it together with [New-VisioPageCells](new-visiopagecells.md), which constructs the cells object you populate and pass in.
 
 All updates run inside a single undo scope.
 
-### Update the active page
+## Syntax
 
-When `-Page` is omitted, the cmdlet targets the active page.
+```powershell
+Set-VisioPageCells [-Cells] <PageCells[]> [-Page <Page[]>]
+                   [-BlastGuards] [-TestCircular]
+```
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `-Cells` | `PageCells[]` | Yes (positional) | One or more populated `PageCells` objects to write. A single object is broadcast to every target page; an array is zipped position-for-position and cycles if shorter than the page list. |
+| `-Page` | `Page[]` | No | Pages to update. If omitted, the active page is used. |
+| `-BlastGuards` | `SwitchParameter` | No | Overwrite cells protected by a `GUARD()` formula. |
+| `-TestCircular` | `SwitchParameter` | No | Enable the circular-reference check during the write. |
+
+## Examples
+
+### Update the active page
 
 ```powershell
 $cells = New-VisioPageCells
@@ -27,8 +43,6 @@ $pages = Get-VisioPage
 Set-VisioPageCells -Cells $cells -Page $pages[0],$pages[2]
 ```
 
-A single `PageCells` is broadcast to every page; an array is zipped position-for-position. If the array is shorter than the page list it cycles (page index `i` uses cells `i % cells.Length`).
-
 ### Per-page settings
 
 ```powershell
@@ -46,13 +60,11 @@ Set-VisioPageCells -Cells $cells_letter,$cells_a4 -Page $pages
 
 ### Bypass guarded formulas
 
-`-BlastGuards` lets the writer overwrite cells that are protected by a `GUARD()` formula. `-TestCircular` enables the circular-reference check. Both are off by default.
-
 ```powershell
 Set-VisioPageCells -Cells $cells -BlastGuards -TestCircular
 ```
 
-### See also
+## See also
 
 * [New-VisioPageCells](new-visiopagecells.md)
 * [PageCells](../pagecells.md)
