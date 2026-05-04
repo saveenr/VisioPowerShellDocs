@@ -7,6 +7,14 @@ The `Export-VisioShape` cmdlet exports the active selection (or the shapes you p
 ### Export the current selection to a PNG
 
 ```powershell
+Export-VisioShape -Filename "selection.png"
+```
+
+### Overwrite an existing file
+
+If the target file already exists, the cmdlet refuses to overwrite it unless you pass `-Overwrite`.
+
+```powershell
 Export-VisioShape -Filename "selection.png" -Overwrite
 ```
 
@@ -16,18 +24,14 @@ When `-Shape` is supplied, the cmdlet first selects those shapes, then exports t
 
 ```powershell
 $shapes = Get-VisioShape
-Export-VisioShape -Filename "two-shapes.svg" -Overwrite -Shape $shapes[0],$shapes[1]
+Export-VisioShape -Filename "two-shapes.svg" -Shape $shapes[0],$shapes[1]
 ```
 
 ### Export to HTML
 
 ```powershell
-Export-VisioShape -Filename "selection.html" -Overwrite
+Export-VisioShape -Filename "selection.html"
 ```
-
-### Known limitation
-
-> **Always pass `-Overwrite`.** In the current build (4.6.0) the file-existence check is inverted, so omitting `-Overwrite` raises *"File already exists"* even when the target file does **not** exist. Passing `-Overwrite` works correctly in both the fresh-file and existing-file cases.
 
 ### See also
 
