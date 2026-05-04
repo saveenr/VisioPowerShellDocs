@@ -122,6 +122,7 @@
   * [Redo-VisioApplication](cmdlets/visioapplication/redo-visioapplication.md)
 * [Windows](cmdlets/windows/README.md)
   * [Format-VisioWindow](cmdlets/windows/window-zoom.md)
+* [Other cmdlets](cmdlets/other-cmdlets.md)
 
 ## Developer Info
 

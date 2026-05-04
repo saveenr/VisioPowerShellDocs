@@ -26,7 +26,6 @@ Test-VisioDocument
 Get-VisioHyperlink         
 New-VisioHyperlink         
 Remove-VisioHyperlink      
-Get-VisioLayer             
 Get-VisioLockCells         
 Get-VisioMaster            
 Import-VisioModel          
@@ -41,6 +40,8 @@ Select-VisioPage
 Get-VisioPageCells         
 New-VisioPageCells         
 Set-VisioPageCells         
+New-VisioPoint             
+New-VisioRectangle         
 Connect-VisioShape         
 Copy-VisioShape            
 Export-VisioShape          
