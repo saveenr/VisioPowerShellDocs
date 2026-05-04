@@ -54,7 +54,7 @@ $shape = New-VisioShape -Master $masters -Position $points -Cells $shape_cells
 
 ```
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (1).png>)
 
 Many common formatting options are available in the ShapeCells object returned by `New-VisioShapeCells`. To find see all the properties use the following command
 
