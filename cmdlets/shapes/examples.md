@@ -13,7 +13,12 @@ $stencil = Open-VisioDocument "basic_u.vss"
 $master1 = Get-VisioMaster "Rounded Rectangle" $stencil 
 
 # Drop multiple shapes at the same time
-$shapes = New-VisioShape $master1 -Points 1,5.2,3,5.2,5,5.2
+$points = @(
+    New-VisioPoint 1 5.2
+    New-VisioPoint 3 5.2
+    New-VisioPoint 5 5.2
+)
+$shapes = New-VisioShape -Master $master1 -Position $points
 
 #Ensure that Nothing is Selected - just to demonstrate this feature
 Select-VisioShape -Operation None

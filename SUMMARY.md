@@ -85,6 +85,7 @@
   * [Get-VisioShape](cmdlets/shapes/enumerate-selected-shapes.md)
   * [Join-VisioShape](cmdlets/shapes/create-groups.md)
   * [Lock-VisioShape](cmdlets/shapes/lock-visioshape.md)
+  * [New-VisioShape](cmdlets/shapes/new-visioshape.md)
   * [Select-VisioShape](cmdlets/shapes/selecting-shapes.md)
   * [Select-VisioShape Invert](cmdlets/shapes/invert-the-selection.md)
   * [Select-VisioShape -None](cmdlets/shapes/clearing-the-selection.md)

@@ -11,7 +11,7 @@ The following code shows the simplest case. It drops a "Rectangle" shape into th
 ```
 $basic_u = Open-VisioDocument "basic_u.vss"
 $master = Get-VisioMaster "Rectangle" -Document $basic_u
-$points = New-VisioPoint 4,5
+$points = New-VisioPoint 4 5
 $shape = New-VisioShape -Master $master -Position $points
 ```
 
@@ -47,4 +47,4 @@ $shape = New-VisioShape -Master $masters -Position $points
 Set-VisioText -Text "Hello World" -Shape $shape
 ```
 
-The `New-VisioShape` cmdlet returns a list of integers - these are the shape ids of the shapes that were created as a result of the drop operation.
+The `New-VisioShape` cmdlet returns the dropped shapes as `IVisio.Shape` objects.
