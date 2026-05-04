@@ -1,11 +1,54 @@
 # New-VisioShape
 
-The `New-VisioShape` cmdlet creates one or more shapes on the active page. It works in two modes:
+The **New-VisioShape** cmdlet creates one or more shapes on the active page. It works in two modes:
 
 * **Drop a master** from a stencil at one or more positions. This is the recommended way to create shapes.
 * **Draw a primitive** &mdash; rectangle, oval, line, polyline, or Bezier &mdash; without a master.
 
 The cmdlet returns the shapes it created.
+
+## Syntax
+
+The cmdlet has six parameter sets, one for each shape kind. Pick the syntax that matches what you're creating.
+
+```powershell
+# Drop master(s)
+New-VisioShape [-Master] <Master[]> -Position <Point[]> [-Cells <ShapeCells[]>]
+
+# Draw a rectangle
+New-VisioShape [-Rectangle] [-BoundingBox] <Rectangle> [-Cells <ShapeCells[]>]
+
+# Draw an oval
+New-VisioShape [-Oval] [-BoundingBox] <Rectangle> [-Cells <ShapeCells[]>]
+
+# Draw a line
+New-VisioShape [-Line] -From <Point> -To <Point> [-Cells <ShapeCells[]>]
+
+# Draw a polyline
+New-VisioShape [-Polyline] [-Points] <Point[]> [-Cells <ShapeCells[]>]
+
+# Draw a Bezier curve
+New-VisioShape [-Bezier] [-Points] <Point[]> [-Cells <ShapeCells[]>]
+```
+
+## Parameters
+
+| Parameter | Type | Required | Parameter set | Description |
+| --- | --- | --- | --- | --- |
+| `-Master` | `Master[]` | Yes | Drop master | The master(s) to drop. If `-Position` has more entries than `-Master`, the masters are reused (cycled). |
+| `-Position` | `Point[]` | Yes | Drop master | Where each master is dropped. |
+| `-Rectangle` | `SwitchParameter` | Yes | Rectangle | Selects rectangle mode. |
+| `-Oval` | `SwitchParameter` | Yes | Oval | Selects oval mode. |
+| `-BoundingBox` | `Rectangle` | Yes | Rectangle, Oval | Bounds of the rectangle or oval (`Left, Bottom, Right, Top`). Build with `New-VisioRectangle`. |
+| `-Line` | `SwitchParameter` | Yes | Line | Selects line mode. |
+| `-From` | `Point` | Yes | Line | Line start point. |
+| `-To` | `Point` | Yes | Line | Line end point. |
+| `-Polyline` | `SwitchParameter` | Yes | Polyline | Selects polyline mode. Requires at least 2 points. |
+| `-Bezier` | `SwitchParameter` | Yes | Bezier | Selects Bezier mode. Requires at least 4 points (each cubic segment uses two endpoints and two control points). |
+| `-Points` | `Point[]` | Yes | Polyline, Bezier | The points the polyline or Bezier passes through. |
+| `-Cells` | `ShapeCells[]` | No | All | ShapeSheet cells to apply to the new shape(s). A single object applies to every shape; an array is zipped position-for-position and cycles if shorter than the shape count. |
+
+## Examples
 
 ### Drop a master at a single point
 
@@ -100,7 +143,7 @@ $polyline = New-VisioShape -Polyline -Points $points
 $bezier   = New-VisioShape -Bezier   -Points $points
 ```
 
-### See also
+## See also
 
 * [Drop shape masters](../../basics/drop-masters.md)
 * [Draw basic shapes](../../basics/draw-basic-shapes.md)
