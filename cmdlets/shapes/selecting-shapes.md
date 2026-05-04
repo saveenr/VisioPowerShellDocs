@@ -1,31 +1,68 @@
 # Select-VisioShape
 
-#### Select all shapes <a href="#select-all-shapes" id="select-all-shapes"></a>
+The **Select-VisioShape** cmdlet changes the active selection in Visio. It works in two modes &mdash; either pass an explicit list of shapes, or pass a high-level operation (`SelectAll`, `SelectNone`, `InvertSelection`).
 
-```
-Select-VisioShape All
-```
+## Syntax
 
-#### Selecting specific shapes <a href="#selecting-specific-shapes" id="selecting-specific-shapes"></a>
+```powershell
+# Select specific shapes
+Select-VisioShape [-Shapes] <Shape[]>
 
-```
-New-VisioRectangle 0 0 1 1
-$shapes += New-VisioRectangle 0 0 1 1
-$shapes += New-VisioRectangle 0 0 2 3
-
-Select-VisioShape $shapes
+# Apply a high-level selection operation
+Select-VisioShape [-SelectionOperation] <ShapeSelectionOperation>
 ```
 
-You can pass in IDs of shapes
+## Parameters
 
+| Parameter | Type | Required | Parameter set | Description |
+| --- | --- | --- | --- | --- |
+| `-Shapes` | `Shape[]` | Yes (positional) | SelectByShapes | Shapes to select. The list replaces the current selection. |
+| `-SelectionOperation` | `ShapeSelectionOperation` | Yes (positional) | SelectByOperation | One of `SelectAll`, `SelectNone`, `InvertSelection`. |
+
+## Examples
+
+### Select all shapes on the active page
+
+```powershell
+Select-VisioShape SelectAll
 ```
-New-VisioRectangle 0 0 1 1
-$shapes += New-VisioRectangle 0 0 1 1
-$shapes += New-VisioRectangle 0 0 2 3
-$shapeids = $shapes | ForEach-Object{ $_.ID }
-Select-VisioShape $shapeids
+
+### Clear the selection
+
+```powershell
+Select-VisioShape SelectNone
 ```
 
-#### &#x20;<a href="#deselect-all-shapes-clear-selection" id="deselect-all-shapes-clear-selection"></a>
+See [Select-VisioShape (clear selection)](clearing-the-selection.md) for context.
 
-#### &#x20;<a href="#invert-the-selection" id="invert-the-selection"></a>
+### Invert the selection
+
+```powershell
+Select-VisioShape InvertSelection
+```
+
+See [Select-VisioShape (invert)](invert-the-selection.md) for context.
+
+### Select specific shape objects
+
+```powershell
+$rect_m = Get-VisioMaster "Rectangle" -Document (Open-VisioDocument "basic_u.vss")
+$s1 = New-VisioShape -Master $rect_m -Position (New-VisioPoint 0 0)
+$s2 = New-VisioShape -Master $rect_m -Position (New-VisioPoint 2 2)
+$s3 = New-VisioShape -Master $rect_m -Position (New-VisioPoint 4 4)
+
+Select-VisioShape -Shapes $s1,$s3
+```
+
+Positional form also works:
+
+```powershell
+Select-VisioShape $s1,$s3
+```
+
+## See also
+
+* [Get-VisioShape](enumerate-selected-shapes.md) &mdash; read the current selection.
+* [Test-VisioShape](test-visioshape.md) &mdash; check whether anything is selected.
+* [Select-VisioShape (clear selection)](clearing-the-selection.md)
+* [Select-VisioShape (invert)](invert-the-selection.md)

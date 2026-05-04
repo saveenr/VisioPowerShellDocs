@@ -1,18 +1,28 @@
 # Remove-VisioShape
 
-The `Remove-VisioShape` cmdlet deletes shapes from the active page.
+The **Remove-VisioShape** cmdlet deletes shapes from the active page. With no arguments it deletes the current selection; pass `-Shape` to delete specific shapes.
+
+## Syntax
+
+```powershell
+Remove-VisioShape [-Shape <Shape[]>]
+```
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `-Shape` | `Shape[]` | No | Shapes to delete. If omitted, the current selection is deleted. |
+
+## Examples
 
 ### Delete the current selection
-
-With no arguments, the cmdlet deletes whatever shapes are currently selected.
 
 ```powershell
 Remove-VisioShape
 ```
 
 ### Delete specific shapes
-
-Pass an `IVisio.Shape` or an array of shapes via `-Shape`.
 
 ```powershell
 $shapes = Get-VisioShape
@@ -31,7 +41,7 @@ Select-VisioShape All
 Remove-VisioShape
 ```
 
-### See also
+## See also
 
 * [New-VisioShape](new-visioshape.md)
 * [Select-VisioShape](selecting-shapes.md)

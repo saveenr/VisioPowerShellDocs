@@ -1,12 +1,24 @@
 # Lock-VisioShape
 
-The `Lock-VisioShape` cmdlet sets one or more lock cells on a shape's ShapeSheet. Each switch corresponds to a `Lock*` cell &mdash; pass the switches for the locks you want to enable. Locks not mentioned in the call are left unchanged. Pair with [`Unlock-VisioShape`](unlock-visioshape.md) to clear locks.
+The **Lock-VisioShape** cmdlet sets one or more lock cells on a shape's ShapeSheet. Each switch corresponds to a `Lock*` cell &mdash; pass the switches for the locks you want to enable. Locks not mentioned in the call are left unchanged. Pair with [Unlock-VisioShape](unlock-visioshape.md) to clear locks.
 
 When `-Shape` is omitted, the cmdlet operates on the active selection.
 
-### Available locks
+> **Requires Visio PowerShell 4.6.1 or later.** Earlier versions had a binder bug that silently ignored these switches.
 
-| Switch | ShapeSheet cell | Effect |
+## Syntax
+
+```powershell
+Lock-VisioShape [-Aspect] [-Begin] [-CalcWH] [-Crop] [-CustProp] [-Delete]
+                [-End] [-Format] [-FromGroupFormat] [-Group] [-Height]
+                [-MoveX] [-MoveY] [-Rotate] [-Select] [-TextEdit]
+                [-ThemeColors] [-ThemeEffects] [-VertexEdit] [-Width]
+                [-Shape <Shape[]>]
+```
+
+## Parameters
+
+| Parameter | ShapeSheet cell | Effect |
 | --- | --- | --- |
 | `-Aspect` | `LockAspect` | Preserves width-to-height ratio when sized. |
 | `-Begin` | `LockBegin` | Begin endpoint cannot be moved. |
@@ -28,6 +40,11 @@ When `-Shape` is omitted, the cmdlet operates on the active selection.
 | `-ThemeEffects` | `LockThemeEffects` | Theme effect changes don't apply. |
 | `-VertexEdit` | `LockVertexEdit` | Geometry vertices cannot be edited. |
 | `-Width` | `LockWidth` | Width cannot be changed. |
+| `-Shape` | (target) | Shapes to lock. If omitted, the active selection is used. |
+
+All lock switches are `SwitchParameter` and optional.
+
+## Examples
 
 ### Lock the current selection so it can't be moved or resized
 
@@ -50,7 +67,7 @@ $shape = $dict.Keys | Select-Object -First 1
 $dict[$shape]
 ```
 
-### See also
+## See also
 
 * [Unlock-VisioShape](unlock-visioshape.md)
 * `Get-VisioLockCells` (covered in the [Other cmdlets](../other-cmdlets.md) note).

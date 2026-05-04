@@ -1,7 +1,9 @@
-# Select-VisioShape -None
+# Select-VisioShape (clear selection)
 
+Clear the active selection &mdash; deselect everything on the page. This is one of the high-level operations supported by [Select-VisioShape](selecting-shapes.md).
 
-
+```powershell
+Select-VisioShape SelectNone
 ```
-Select-VisioShape None
-```
+
+See [Select-VisioShape](selecting-shapes.md) for the cmdlet's full syntax and parameter reference.

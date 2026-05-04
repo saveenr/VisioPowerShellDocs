@@ -1,16 +1,15 @@
 # Examples of Join-VisioShape and Split-VisioShape
 
+## Example 1
 
-
-#### Example 1 <a href="#example-1" id="example-1"></a>
-
-```
+```powershell
 Import-Module Visio
-$visio = New-VisioApplication
-$doc = New-VisioDocument
+
+$visio   = New-VisioApplication
+$doc     = New-VisioDocument
 $stencil = Open-VisioDocument "basic_u.vss"
 
-$master1 = Get-VisioMaster "Rounded Rectangle" $stencil 
+$master1 = Get-VisioMaster "Rounded Rectangle" -Document $stencil
 
 # Drop multiple shapes at the same time
 $points = @(
@@ -20,18 +19,18 @@ $points = @(
 )
 $shapes = New-VisioShape -Master $master1 -Position $points
 
-#Ensure that Nothing is Selected - just to demonstrate this feature
-Select-VisioShape -Operation None
+# Clear the selection -- just to demonstrate this feature
+Select-VisioShape SelectNone
 
-#Select the first and third shapes dropped
+# Select the first and third shapes dropped
 Select-VisioShape -Shapes $shapes[0],$shapes[2]
 
 # Group the selected shapes
-$g1 = New-VisioGroup
+$g1 = Join-VisioShape
 
 # Ungroup them
-Split-VisioShape -Shapes $g1
+Split-VisioShape -Shape $g1
 
 # Group by specifying the shapes (ignore whatever is selected)
-$g1 = Join-VisioShape -Shapes $shapes[0],$shapes[1]
+$g1 = Join-VisioShape -Shape $shapes[0],$shapes[1]
 ```
