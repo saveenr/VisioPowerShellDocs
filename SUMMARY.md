@@ -77,6 +77,8 @@
   * [Remove-VisioPage](cmdlets/pages/remove-visiopage.md)
   * [Select-VisioPage \[TBD\]](cmdlets/pages/select-visiopage-tbd.md)
 * [PageCells](cmdlets/pagecells.md)
+  * [New-VisioPageCells](cmdlets/pages/new-visiopagecells.md)
+  * [Set-VisioPageCells](cmdlets/pages/set-visiopagecells.md)
 * [Shapes](cmdlets/shapes/README.md)
   * [Connect-VisioShape](cmdlets/shapes/connect-shapes.md)
   * [Copy-VisioShape](cmdlets/shapes/copy-visioshape.md)

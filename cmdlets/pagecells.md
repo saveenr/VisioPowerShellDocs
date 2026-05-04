@@ -1,44 +1,39 @@
 # PageCells
 
+These cmdlets work with the ShapeSheet of pages (page size, margins, scale, layout, print setup, and so on):
 
+* [`New-VisioPageCells`](pages/new-visiopagecells.md) &mdash; create a blank `PageCells` object to populate.
+* `Get-VisioPageCells` &mdash; read cells off one or more pages as a DataTable.
+* [`Set-VisioPageCells`](pages/set-visiopagecells.md) &mdash; write a populated `PageCells` to one or more pages.
 
-These cmdlets work with the ShapeSheet of pages:
+The pattern is the same as for shape cells: build a cells object, set the properties you care about, write it back.
 
-```
-New-VisioPageCells
-Get-VisioPageCells
-Set-VisioPageCells
-```
+### Working with page cells
 
-#### Working with page cells <a href="#working-with-page-cells" id="working-with-page-cells"></a>
-
-As shown below, the process is very similar to working with shapes
-
-```
+```powershell
 Set-StrictMode -Version 2
 $ErrorActionPreference = "Stop"
 
 Import-Module Visio
 
 New-VisioApplication
-$doc = New-VisioDocument
+$doc  = New-VisioDocument
 $page = Get-VisioPage -ActivePage
 
-$cells_dt = Get-VisioPageCells -Pages $page 
+$cells_dt = Get-VisioPageCells -Page $page
 
 Write-Host $cells_dt
 
-$new_cells = New-VisioPageCells 
-
+$new_cells = New-VisioPageCells
 $new_cells.PageHeight = 3
-$new_cells.PageWidth = 6
+$new_cells.PageWidth  = 6
 
-Set-VisioPageCells -Cells $new_cells -Pages $pages
+Set-VisioPageCells -Cells $new_cells -Page $page
 ```
 
-#### Querying multiple pages <a href="#querying-multiple-pages" id="querying-multiple-pages"></a>
+### Querying multiple pages
 
-```
+```powershell
 Set-StrictMode -Version 2
 $ErrorActionPreference = "Stop"
 
@@ -53,9 +48,9 @@ New-VisioPage | Out-Null
 New-VisioPage | Out-Null
 New-VisioPage | Out-Null
 
-$pages = Get-VisioPage 
+$pages = Get-VisioPage
 
-$pages_dt = Get-VisioPageCells -Pages $pages 
+$pages_dt = Get-VisioPageCells -Page $pages
 
 Write-Host $pages_dt
 ```
