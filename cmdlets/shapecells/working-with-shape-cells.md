@@ -1,20 +1,12 @@
 # Shape cells
 
-These cmdlets work with the ShapeSheet of shapes:
+To read the cell values of a shape, use [`Get-VisioShapeCells`](get-visioshapecells.md). It returns a `System.Data.DataTable`.
 
-```
-New-VisioShapeCells
-Get-VisioShapeCells
-Set-VisioShapeCells
-```
+To write cell values, first create a `ShapeCells` object with [`New-VisioShapeCells`](new-visioshapecells.md). Set the properties you care about. Finally, hand the object to `Set-VisioShapeCells`.
 
-#### Working with shape cells <a href="#working-with-shape-cells" id="working-with-shape-cells"></a>
+### Working with shape cells
 
-To query the cell values of that shape use Get-VisioShapeCells Note that this cmdlet returns a System.Data.DataTable
-
-Setting cell values First, create a new "ShapeCells" object with **New-VisioShapeCells**. Then set the value of cells on that object. Finally, use **Set-VisioShapeCells** to set the cells.
-
-```
+```powershell
 # First, let's draw a shape on a page
 
 Set-StrictMode -Version 2
@@ -25,17 +17,17 @@ Import-Module Visio
 New-VisioApplication
 $doc = New-VisioDocument
 
-$basic_u = Open-VisioDocument basic_u.vss
-$master = Get-VisioMaster "Rectangle" $basic_u
-$shape = New-VisioShape $master 2,2
+$basic_u = Open-VisioDocument "basic_u.vss"
+$master  = Get-VisioMaster "Rectangle" -Document $basic_u
+$shape   = New-VisioShape -Master $master -Position (New-VisioPoint 2 2)
 
-$cells_dt = Get-VisioShapeCells -Shape $shape 
+$cells_dt = Get-VisioShapeCells -Shape $shape
 
 Write-Host $cells_dt
 
 $new_cells = New-VisioShapeCells
-$new_cells.XFormWidth = 2
+$new_cells.XFormWidth  = 2
 $new_cells.XFormHeight = 4
 
-Set-VisioShapeCells -Cells $new_cells -Shapes $shape
+Set-VisioShapeCells -Cells $new_cells -Shape $shape
 ```
