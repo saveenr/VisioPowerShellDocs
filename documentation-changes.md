@@ -1,0 +1,61 @@
+# Documentation changes
+
+This page summarizes notable changes to the **Visio PowerShell** documentation so returning readers can find what's new without re-reading every page.
+
+For the underlying module's release notes, see [Release history](developer-info/release-history.md).
+
+## 2026-05 — Refresh against module 4.6.1
+
+A large refresh aligning every cmdlet page with the **Visio PowerShell 4.6.1** module released on 2026-05-03. The work touched almost every page.
+
+### New cmdlet pages
+
+Cmdlets that previously had no documentation now have full pages:
+
+* [New-VisioShape](cmdlets/shapes/new-visioshape.md), [Remove-VisioShape](cmdlets/shapes/remove-visioshape.md)
+* [New-VisioPageCells](cmdlets/pages/new-visiopagecells.md), [Set-VisioPageCells](cmdlets/pages/set-visiopagecells.md)
+* [Get-VisioShapeCells](cmdlets/shapecells/get-visioshapecells.md), [New-VisioShapeCells](cmdlets/shapecells/new-visioshapecells.md)
+* [Get-VisioControl](cmdlets/control/get-visiocontrol.md), [New-VisioControl](cmdlets/control/new-visiocontrol.md), [Remove-VisioControl](cmdlets/control/remove-visiocontrol.md) &mdash; entirely new section
+* All seven [VisioApplication cmdlets](cmdlets/visioapplication/) (Close, Get, New, Out, Test, Undo, Redo)
+* [Copy-VisioPage](cmdlets/pages/invoke-visioduplicate-page.md), [Select-VisioPage](cmdlets/pages/select-visiopage-tbd.md), [Get-VisioText](cmdlets/text/get-visiotext.md) &mdash; previously marked `[TBD]`
+* [Other cmdlets](cmdlets/other-cmdlets.md) &mdash; a single page covering the small/utility cmdlets (`Get-VisioClient`, `Get-VisioLockCells`, `Import-VisioModel`, `Measure-VisioShape`, `New-VisioPoint`, `New-VisioRectangle`, `Select-VisioDocument`, `Test-VisioDocument`)
+
+### Standardized layout
+
+Every cmdlet page now follows the same structure:
+
+* A one-sentence intro with the cmdlet name in bold.
+* A **Syntax** block in PowerShell `Get-Help -Syntax` style. Cmdlets with multiple parameter sets get one syntax block per set.
+* A **Parameters** table with name, type, required-or-not, and description.
+* An **Examples** section grouping the per-task examples.
+* A **See also** section linking to related cmdlets.
+
+If you used to skim cmdlet pages looking for the parameter list, the `## Parameters` table is now the place to find it.
+
+### Documents new behavior in 4.6.1
+
+The `Lock-VisioShape` / `Unlock-VisioShape` / `Export-VisioShape` / `New-VisioShape` pages reflect bug fixes that shipped in **4.6.1**:
+
+* `Lock-VisioShape` and `Unlock-VisioShape` switches (`-Width`, `-Height`, `-MoveX`, etc.) now actually take effect. In 4.6.0 and earlier, the switches were silently ignored.
+* `Export-VisioShape` no longer needs `-Overwrite` to write to a fresh path. The previous "Known limitation" note has been removed.
+* `New-VisioShape -Polyline` requires at least 2 points; `-Bezier` requires at least 4. The cmdlet now actually enforces this.
+
+The lock-related pages call out the version requirement explicitly so readers on older modules aren't misled.
+
+### Corrected examples
+
+Many example snippets in the previous docs referenced cmdlets, parameters, or values that don't exist in the module. They've all been corrected:
+
+* `Set-VisioPage` (used throughout the old `Get-VisioPage` page) is not a real cmdlet &mdash; references replaced with `Select-VisioPage`.
+* `Set-VisioDocument`, `Get-VisioScriptingClient`, `New-VisioGroup` &mdash; none of these exist; replaced with the actual cmdlets (`Select-VisioDocument`, `Get-VisioClient`, `Join-VisioShape`).
+* `Export-VisioPage -AllPages` &mdash; this parameter doesn't exist. Replaced with a `foreach` loop over `Get-VisioPage`.
+* `Select-VisioShape All` / `None` / `Invert` &mdash; the actual enum values are `SelectAll`, `SelectNone`, `InvertSelection`. PowerShell does not accept the abbreviated forms.
+* `Get-VisioShape -Recursive` &mdash; this parameter doesn't exist; removed.
+* `New-VisioShape -Masters X -Points Y,Z` &mdash; the actual parameters are singular `-Master` and `-Position` (and `-Position` takes `Point` objects, not loose numbers). Standardized to `-Master $m -Position (New-VisioPoint X Y)`.
+* `Format-VisioShape -NudgeX` for vertical nudges &mdash; the vertical equivalent is `-NudgeY`.
+* `Format-VisioWindow` parameter names in prose were `-To`, `-Value`, `-ValueRelative`; the actual names are `-ZoomTo`, `-Zoom`, `-ZoomRelative`.
+* `New-Object VisioAutomation.Geometry.Point(...)` &mdash; the `Geometry` namespace doesn't exist; the actual class is `VisioAutomation.Core.Point`. Examples switched to the idiomatic `New-VisioPoint X Y`.
+
+### Publishing-to-PowerShell-Gallery rewrite
+
+The [Publish to PowerShell Gallery](developer-info/publishing-to-powershell-gallery.md) page was rewritten end-to-end after a real publish exercise surfaced several gotchas (TLS 1.2, in-box PowerShellGet 1.x bugs, PS 5.1 vs 7 module path, `.ps1` file encoding). The page now points at the new `Publish-VisioPSToGallery.ps1` release script and documents both the quick path and the manual fallback.

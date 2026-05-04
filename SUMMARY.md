@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Quick start](quick-start.md)
 * [Links](links.md)
+* [Documentation changes](documentation-changes.md)
 * [Basics](basics/README.md)
   * [Geometry primitves](basics/geometry-primitves.md)
   * [Context-sensitivity](basics/context-sensitivity.md)
