@@ -1,45 +1,67 @@
 # Get-VisioDocument
 
-#### Get all documents  <a href="#get-all-documents" id="get-all-documents"></a>
+The **Get-VisioDocument** cmdlet returns one or more open Visio documents. With no arguments it returns every open document; pass `-ActiveDocument` for the currently active one, or `-Name` to filter by document name (wildcards supported).
 
+## Syntax
+
+```powershell
+# All open documents (default) or by name
+Get-VisioDocument [-Name <String[]>]
+
+# Just the active document
+Get-VisioDocument [-ActiveDocument]
 ```
+
+## Parameters
+
+| Parameter | Type | Required | Parameter set | Description |
+| --- | --- | --- | --- | --- |
+| `-Name` | `String[]` | No | docbyname | One or more document names. Wildcards (`*`) are supported. |
+| `-ActiveDocument` | `SwitchParameter` | No | active | Return only the active document. |
+
+## Examples
+
+### Get every open document
+
+```powershell
 Get-VisioDocument -Name *
 ```
 
-#### Get all documents based on the document name <a href="#get-all-documents-based-on-the-document-name" id="get-all-documents-based-on-the-document-name"></a>
+### Get a document by name
 
-```
-# To find a specific document with name "DocumentFoo"
+```powershell
 Get-VisioDocument -Name "DocumentFoo"
 ```
 
-#### Get the active document <a href="#get-the-active-document" id="get-the-active-document"></a>
+### Get the active document
 
-```
+```powershell
 Get-VisioDocument -ActiveDocument
 ```
 
-#### Set the Active Document <a href="#set-the-active-document" id="set-the-active-document"></a>
+### Check whether a document is open
 
-```
-# using a document object
-Set-VisioDocument $doc
+`Test-VisioDocument` is the cleanest way to gate on a document being available.
 
-# Using the name the document
-Set-VisioDocument "Drawing5"
-```
-
-#### Checking if the Active Document is valid <a href="#checking-is-the-active-document-is-valid" id="checking-is-the-active-document-is-valid"></a>
-
-Sometimes you'll need to perform an action only if a drawing is open. The easy way to check is to use Test-VisioDocument
-
-```
-If (Test-VisioDocument)
-{
-    # do something
-}
-else
-{
-    # do something else
+```powershell
+if (Test-VisioDocument) {
+    # safe to operate on the active document here
 }
 ```
+
+### Switch the active document
+
+Use `Select-VisioDocument` to make a specific document the active one for cmdlets that target the "active document" by default.
+
+```powershell
+$doc = Get-VisioDocument -Name "Drawing5"
+Select-VisioDocument -Document $doc
+```
+
+## See also
+
+* [Close-VisioDocument](close-visiodocument.md)
+* [New-VisioDocument](new-visiodocument.md)
+* [Open-VisioDocument](open-visiodocument.md)
+* [Save-VisioDocument](save-visiodocument.md)
+* `Test-VisioDocument`, `Select-VisioDocument` (covered in the [Other cmdlets](../other-cmdlets.md) note).
