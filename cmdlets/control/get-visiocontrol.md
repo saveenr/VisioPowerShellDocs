@@ -1,10 +1,22 @@
 # Get-VisioControl
 
-The `Get-VisioControl` cmdlet reads the control handles defined on one or more shapes. The result is a dictionary keyed by shape; each value is a list of `ControlCells` objects (one per handle). Cell values come back as **formulas**.
+The **Get-VisioControl** cmdlet reads the control handles defined on one or more shapes. The result is a dictionary keyed by shape; each value is a list of `ControlCells` objects (one per handle). Cell values come back as **formulas**.
+
+## Syntax
+
+```powershell
+Get-VisioControl [-Shape <Shape[]>]
+```
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `-Shape` | `Shape[]` | No | Shapes to inspect. If omitted, the active selection is used. |
+
+## Examples
 
 ### Read controls from the current selection
-
-When `-Shape` is omitted, the cmdlet reads the active selection.
 
 ```powershell
 $dict = Get-VisioControl
@@ -32,7 +44,7 @@ $controls = $dict[$shape]
 $controls[0]   # ControlCells: X, Y, XBehavior, YBehavior, XDynamics, YDynamics, CanGlue, Tip
 ```
 
-### See also
+## See also
 
 * [New-VisioControl](new-visiocontrol.md)
 * [Remove-VisioControl](remove-visiocontrol.md)

@@ -1,8 +1,23 @@
 # Remove-VisioControl
 
-The `Remove-VisioControl` cmdlet deletes a control handle from one or more shapes. The handle is identified by its zero-based index within the shape's `Controls` section.
+The **Remove-VisioControl** cmdlet deletes a control handle from one or more shapes. The handle is identified by its zero-based index within the shape's `Controls` section.
 
 `-Index` is required.
+
+## Syntax
+
+```powershell
+Remove-VisioControl [-Index] <Int32> [-Shape <Shape[]>]
+```
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `-Index` | `Int32` | Yes (positional) | Zero-based index of the handle to remove. |
+| `-Shape` | `Shape[]` | No | Shapes to operate on. If omitted, the active selection is used. |
+
+## Examples
 
 ### Remove the first control handle from the active selection
 
@@ -33,7 +48,7 @@ for ($i = 0; $i -lt $controls.Count; $i++) {
 Remove-VisioControl -Index 1 -Shape $shape
 ```
 
-### See also
+## See also
 
 * [Get-VisioControl](get-visiocontrol.md)
 * [New-VisioControl](new-visiocontrol.md)
