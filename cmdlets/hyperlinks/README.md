@@ -1,7 +1,7 @@
 # Hyperlinks
 
-### &#x20;<a href="#add-a-hyperlink-on-a-shape" id="add-a-hyperlink-on-a-shape"></a>
+A Visio shape can carry one or more **hyperlinks** &mdash; targets that the user can navigate to from the shape (URLs, file paths, or sub-addresses such as a specific page or bookmark). Each hyperlink has fields for `Address`, `SubAddress`, `Description`, `Frame`, `SortKey`, `NewWindow`, `Default`, `Invisible`, and `ExtraInfo`.
 
-### &#x20;<a href="#get-the-hyperlinks-set-on-shape" id="get-the-hyperlinks-set-on-shape"></a>
-
-### &#x20;<a href="#remove-hyperlinks" id="remove-hyperlinks"></a>
+* [`Get-VisioHyperlink`](get-visiohyperlink.md) &mdash; read the hyperlinks attached to one or more shapes.
+* [`New-VisioHyperlink`](new-visiohyperlink.md) &mdash; attach a new hyperlink to one or more shapes.
+* [`Remove-VisioHyperlink`](remove-visiohyperlink.md) &mdash; delete a hyperlink by index.
