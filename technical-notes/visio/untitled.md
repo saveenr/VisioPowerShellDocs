@@ -1,9 +1,20 @@
 # Create a new Visio application COM object
 
-### Creating a new Visio application COM Object <a href="#creating-a-new-visio-application-com-object" id="creating-a-new-visio-application-com-object"></a>
+`New-VisioApplication` is the supported way to start Visio from the module &mdash; it starts the application **and** binds the PowerShell session to it so subsequent cmdlets target the right instance.
 
+```powershell
+New-VisioApplication
 ```
+
+If you need the raw COM object directly (e.g. for advanced interop scenarios that the module doesn't cover), the equivalent without going through the module is:
+
+```powershell
 $application = New-Object -ComObject Visio.Application
 ```
 
-### &#x20;<a href="#using-the-visual-studio-debugger" id="using-the-visual-studio-debugger"></a>
+This bypasses the session-binding and verbose-logging that `New-VisioApplication` does, so most users should prefer the cmdlet.
+
+## See also
+
+* [`New-VisioApplication`](../../cmdlets/visioapplication/new-visioapplication.md)
+* [`Get-VisioClient`](../getting-the-current-scriptingsession.md) &mdash; drop down further to the `VisioScripting.Client` for .NET-side interop.

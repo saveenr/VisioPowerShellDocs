@@ -1,11 +1,13 @@
 # Visio version compatibility
 
-### Visio versions <a href="#visio-versions" id="visio-versions"></a>
+## Supported Visio versions
 
-This module works with any versions of from Visio 2010 and later
+The module works with **Visio 2010 and later**, including modern Microsoft 365 / Visio Plan 2 builds. Internally the module is built against the Visio 2010 PIA (Primary Interop Assembly) for maximum back-compatibility; APIs added since 2010 are not exposed through the module's typed surface but are reachable via the underlying `IVisio` objects when needed.
 
-### Visio 64-bit vs 32-bit <a href="#visio-64-bit-vs-32-bit" id="visio-64-bit-vs-32-bit"></a>
+## Bitness (32-bit vs 64-bit)
 
-It should would with both 64bit and 32bit versions of Visio.&#x20;
+The module supports both 32-bit and 64-bit Visio installs. The PowerShell process that imports the module must match the Visio bitness, since COM activation goes through an in-process bridge. If you have 64-bit Visio installed, run the module from 64-bit PowerShell; for 32-bit Visio, run from 32-bit PowerShell (`powershell.exe` from `SysWOW64` on a 64-bit Windows).
 
-#### &#x20;<a href="#powershell-versions" id="powershell-versions"></a>
+## See also
+
+* [PowerShell version compatibility](../powershell/powershell-version-compatibility.md)
