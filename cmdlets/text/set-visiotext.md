@@ -2,7 +2,7 @@
 
 The **Set-VisioText** cmdlet sets the text of one or more shapes. With no `-Shape` argument the cmdlet operates on the active selection.
 
-`-Text` is required. When updating multiple shapes, pass an array of strings &mdash; element `i` is applied to shape `i`. A single string is applied to every target shape.
+`-Text` is required. When updating multiple shapes, pass an array of strings; element `i` is applied to shape `i`. A single string is applied to every target shape.
 
 ## Syntax
 
@@ -42,4 +42,4 @@ Set-VisioText "A","B","C" -Shape $shapes[0],$shapes[1],$shapes[2]
 ## See also
 
 * `Get-VisioText` (currently a documentation stub).
-* [Set-VisioShapeCells for text](../shapecells/format-text.md) &mdash; format the text after setting it.
+* [Set-VisioShapeCells for text](../shapecells/format-text.md): format the text after setting it.

@@ -1,6 +1,6 @@
 # Select-VisioShape
 
-The **Select-VisioShape** cmdlet changes the active selection in Visio. It works in two modes &mdash; either pass an explicit list of shapes, or pass a high-level operation (`SelectAll`, `SelectNone`, `InvertSelection`).
+The **Select-VisioShape** cmdlet changes the active selection in Visio. It works in two modes: either pass an explicit list of shapes, or pass a high-level operation (`SelectAll`, `SelectNone`, `InvertSelection`).
 
 ## Syntax
 
@@ -62,7 +62,7 @@ Select-VisioShape $s1,$s3
 
 ## See also
 
-* [Get-VisioShape](enumerate-selected-shapes.md) &mdash; read the current selection.
-* [Test-VisioShape](test-visioshape.md) &mdash; check whether anything is selected.
+* [Get-VisioShape](enumerate-selected-shapes.md): read the current selection.
+* [Test-VisioShape](test-visioshape.md): check whether anything is selected.
 * [Select-VisioShape (clear selection)](clearing-the-selection.md)
 * [Select-VisioShape (invert)](invert-the-selection.md)

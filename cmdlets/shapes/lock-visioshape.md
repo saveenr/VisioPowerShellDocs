@@ -1,6 +1,6 @@
 # Lock-VisioShape
 
-The **Lock-VisioShape** cmdlet sets one or more lock cells on a shape's ShapeSheet. Each switch corresponds to a `Lock*` cell &mdash; pass the switches for the locks you want to enable. Locks not mentioned in the call are left unchanged. Pair with [Unlock-VisioShape](unlock-visioshape.md) to clear locks.
+The **Lock-VisioShape** cmdlet sets one or more lock cells on a shape's ShapeSheet. Each switch corresponds to a `Lock*` cell; pass the switches for the locks you want to enable. Locks not mentioned in the call are left unchanged. Pair with [Unlock-VisioShape](unlock-visioshape.md) to clear locks.
 
 When `-Shape` is omitted, the cmdlet operates on the active selection.
 

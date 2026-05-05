@@ -19,7 +19,7 @@ Get-VisioShape [-ActiveSelection] [-Page <Page>]
 
 | Parameter | Type | Required | Parameter set | Description |
 | --- | --- | --- | --- | --- |
-| `-Name` | `String[]` | No | shapebyname | One or more shape names. Wildcards are **not** supported &mdash; names must match exactly. |
+| `-Name` | `String[]` | No | shapebyname | One or more shape names. Wildcards are **not** supported; names must match exactly. |
 | `-ID` | `Int32[]` | No | shapebyid | One or more numeric Visio shape IDs. |
 | `-ActiveSelection` | `SwitchParameter` | No | active | Return only the currently-selected shapes on the page. |
 | `-Page` | `Page` | No | All | Page to read from. If omitted, the active page is used. |
@@ -59,6 +59,6 @@ $shapes = Get-VisioShape -Page $page
 
 ## See also
 
-* [Select-VisioShape](selecting-shapes.md) &mdash; change the selection.
-* [Test-VisioShape](test-visioshape.md) &mdash; check whether anything is selected.
+* [Select-VisioShape](selecting-shapes.md): change the selection.
+* [Test-VisioShape](test-visioshape.md): check whether anything is selected.
 * [New-VisioShape](new-visioshape.md), [Remove-VisioShape](remove-visioshape.md)

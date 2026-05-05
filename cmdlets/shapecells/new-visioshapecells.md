@@ -1,8 +1,8 @@
 # New-VisioShapeCells
 
-The **New-VisioShapeCells** cmdlet creates a blank `ShapeCells` object whose properties map to ShapeSheet cells on a shape (size, fill, line, character formatting, and many others). Set the properties you care about and pass the object to `Set-VisioShapeCells` to apply it &mdash; or to [New-VisioShape `-Cells`](../shapes/new-visioshape.md) to apply it at drop time.
+The **New-VisioShapeCells** cmdlet creates a blank `ShapeCells` object whose properties map to ShapeSheet cells on a shape (size, fill, line, character formatting, and many others). Set the properties you care about and pass the object to `Set-VisioShapeCells` to apply it, or to [New-VisioShape `-Cells`](../shapes/new-visioshape.md) to apply it at drop time.
 
-The cmdlet does not modify the document &mdash; it only constructs an in-memory cells object.
+The cmdlet does not modify the document; it only constructs an in-memory cells object.
 
 ## Syntax
 
@@ -45,7 +45,7 @@ Set-VisioShapeCells -Cells $allcells -Shape $shapes
 
 ### Discover the available properties
 
-`ShapeCells` exposes many properties &mdash; size and position (`XFormWidth`, `XFormPinX`, ...), fill and line (`FillForeground`, `LineWeight`, ...), character formatting (`CharFont`, `CharSize`, ...), and more.
+`ShapeCells` exposes many properties: size and position (`XFormWidth`, `XFormPinX`, ...), fill and line (`FillForeground`, `LineWeight`, ...), character formatting (`CharFont`, `CharSize`, ...), and more.
 
 ```powershell
 $cells = New-VisioShapeCells
@@ -54,6 +54,6 @@ $cells | Select-Object *
 
 ## See also
 
-* [Shape cells](working-with-shape-cells.md) &mdash; end-to-end query/update example.
+* [Shape cells](working-with-shape-cells.md): end-to-end query/update example.
 * [Format shapes with cells](../../basics/format-shapes-with-cells.md)
-* [New-VisioShape `-Cells`](../shapes/new-visioshape.md) &mdash; apply ShapeCells at drop time.
+* [New-VisioShape `-Cells`](../shapes/new-visioshape.md): apply ShapeCells at drop time.

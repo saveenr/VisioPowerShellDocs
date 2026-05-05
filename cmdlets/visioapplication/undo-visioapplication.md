@@ -1,6 +1,6 @@
 # Undo-VisioApplication
 
-The **Undo-VisioApplication** cmdlet undoes the last action in the bound Visio application &mdash; the same operation as `Ctrl+Z` in the Visio UI.
+The **Undo-VisioApplication** cmdlet undoes the last action in the bound Visio application: the same operation as `Ctrl+Z` in the Visio UI.
 
 ## Syntax
 

@@ -23,4 +23,4 @@ When something doesn't behave the way you expect, append `-Verbose` to the suspe
 
 ## Watch out for the active-thing defaults
 
-Most cmdlets default to "the active document / page / selection" when their `-Document` / `-Page` / `-Shape` parameters are omitted. That's convenient for quick scripts but bites scripts that expect a specific target &mdash; pass the parameter explicitly when correctness matters. See [Context-sensitivity](context-sensitivity.md).
+Most cmdlets default to "the active document / page / selection" when their `-Document` / `-Page` / `-Shape` parameters are omitted. That's convenient for quick scripts but bites scripts that expect a specific target; pass the parameter explicitly when correctness matters. See [Context-sensitivity](context-sensitivity.md).

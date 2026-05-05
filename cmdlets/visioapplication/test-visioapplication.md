@@ -37,4 +37,4 @@ else {
 
 * [New-VisioApplication](new-visioapplication.md)
 * [Get-VisioApplication](get-visioapplication.md)
-* [Test-VisioDocument](../documents/get-visiodocument.md) &mdash; check whether a document is open within the application.
+* [Test-VisioDocument](../documents/get-visiodocument.md): check whether a document is open within the application.

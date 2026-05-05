@@ -71,5 +71,5 @@ Format-VisioShape -DistributeVertical
 
 ## See also
 
-* [Select-VisioShape](selecting-shapes.md) &mdash; control what's selected before formatting.
-* [Format-VisioPage](../pages/format-visiopage.md) &mdash; page-level layout / sizing.
+* [Select-VisioShape](selecting-shapes.md): control what's selected before formatting.
+* [Format-VisioPage](../pages/format-visiopage.md): page-level layout / sizing.

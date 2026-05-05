@@ -1,6 +1,6 @@
 # Redo-VisioApplication
 
-The **Redo-VisioApplication** cmdlet redoes the last undone action in the bound Visio application &mdash; the same operation as `Ctrl+Y` in the Visio UI.
+The **Redo-VisioApplication** cmdlet redoes the last undone action in the bound Visio application: the same operation as `Ctrl+Y` in the Visio UI.
 
 ## Syntax
 

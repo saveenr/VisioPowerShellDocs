@@ -64,7 +64,7 @@ Format-VisioPage -BackgroundPage "BG-Layout"
 
 ### Auto-layout shapes
 
-Visio's layout engine can re-arrange the shapes on a page using one of the layout-style classes from `VisioAutomation.Models.LayoutStyles`. Construct the style, set the parameters you want, and pass it to `-LayoutStyle`. `Import-Module Visio` already loads the VisioAutomation assemblies, so the types are reachable via `New-Object` directly &mdash; no extra `Add-Type` call needed.
+Visio's layout engine can re-arrange the shapes on a page using one of the layout-style classes from `VisioAutomation.Models.LayoutStyles`. Construct the style, set the parameters you want, and pass it to `-LayoutStyle`. `Import-Module Visio` already loads the VisioAutomation assemblies, so the types are reachable via `New-Object` directly; no extra `Add-Type` call is needed.
 
 ```powershell
 Set-StrictMode -Version 2

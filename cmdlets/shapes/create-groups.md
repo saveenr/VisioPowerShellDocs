@@ -31,5 +31,5 @@ $g = Join-VisioShape -Shape $shape1,$shape2,$shape3
 
 ## See also
 
-* [Split-VisioShape](ungroup.md) &mdash; the inverse: ungroup a group.
+* [Split-VisioShape](ungroup.md): the inverse: ungroup a group.
 * [Examples of Join-VisioShape and Split-VisioShape](examples.md)

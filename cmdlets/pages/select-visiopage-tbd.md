@@ -42,5 +42,5 @@ foreach ($page in Get-VisioPage) {
 
 ## See also
 
-* [Get-VisioPage](get-visiopage.md) &mdash; locate the page you want to switch to.
+* [Get-VisioPage](get-visiopage.md): locate the page you want to switch to.
 * [New-VisioPage](new-visiopage.md)

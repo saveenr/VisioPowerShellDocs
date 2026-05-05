@@ -3,7 +3,7 @@
 The **New-VisioShape** cmdlet creates one or more shapes on the active page. It works in two modes:
 
 * **Drop a master** from a stencil at one or more positions. This is the recommended way to create shapes.
-* **Draw a primitive** &mdash; rectangle, oval, line, polyline, or Bezier &mdash; without a master.
+* **Draw a primitive**: rectangle, oval, line, polyline, or Bezier: without a master.
 
 The cmdlet returns the shapes it created.
 
@@ -90,7 +90,7 @@ $shapes = New-VisioShape -Master $masters -Position $points
 
 ### Apply ShapeCells while dropping
 
-Pass `-Cells` to set ShapeSheet cells on the dropped shapes in the same step. When `-Cells` is a single object, it applies to every shape; when it is an array, the shape at index `i` gets the cells at index `i % cells.Length` &mdash; so a shorter array cycles.
+Pass `-Cells` to set ShapeSheet cells on the dropped shapes in the same step. When `-Cells` is a single object, it applies to every shape; when it is an array, the shape at index `i` gets the cells at index `i % cells.Length`, so a shorter array cycles.
 
 ```powershell
 $cells = New-VisioShapeCells

@@ -2,9 +2,9 @@
 
 These cmdlets work with the ShapeSheet of pages (page size, margins, scale, layout, print setup, and so on):
 
-* [`New-VisioPageCells`](pages/new-visiopagecells.md) &mdash; create a blank `PageCells` object to populate.
-* `Get-VisioPageCells` &mdash; read cells off one or more pages as a DataTable.
-* [`Set-VisioPageCells`](pages/set-visiopagecells.md) &mdash; write a populated `PageCells` to one or more pages.
+* [`New-VisioPageCells`](pages/new-visiopagecells.md): create a blank `PageCells` object to populate.
+* `Get-VisioPageCells`: read cells off one or more pages as a DataTable.
+* [`Set-VisioPageCells`](pages/set-visiopagecells.md): write a populated `PageCells` to one or more pages.
 
 The pattern is the same as for shape cells: build a cells object, set the properties you care about, write it back.
 

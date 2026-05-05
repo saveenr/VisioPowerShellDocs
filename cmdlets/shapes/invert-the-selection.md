@@ -1,6 +1,6 @@
 # Select-VisioShape (invert selection)
 
-Invert the active selection &mdash; deselect what's currently selected and select everything else on the page. This is one of the high-level operations supported by [Select-VisioShape](selecting-shapes.md).
+Invert the active selection: deselect what's currently selected and select everything else on the page. This is one of the high-level operations supported by [Select-VisioShape](selecting-shapes.md).
 
 ```powershell
 Select-VisioShape InvertSelection

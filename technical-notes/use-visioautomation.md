@@ -1,6 +1,6 @@
 # Use VisioAutomation
 
-Sometimes you may need to use types from the underlying `VisioAutomation` library directly &mdash; for example to construct a `Core.Point` to pass to a cmdlet, or to read a `Src` from `SrcConstants`.
+Sometimes you may need to use types from the underlying `VisioAutomation` library directly, for example to construct a `Core.Point` to pass to a cmdlet, or to read a `Src` from `SrcConstants`.
 
 `Import-Module Visio` already loads the VisioAutomation assemblies into the session as a side effect of loading the binary cmdlet DLL, so the types are reachable via `New-Object` and the type-literal syntax (`[Namespace.Type]`) without a separate `Add-Type` call.
 

@@ -65,5 +65,5 @@ Set-VisioText "Hello World" -Shape $shape
 
 ## See also
 
-* [Open-VisioDocument](../documents/open-visiodocument.md) &mdash; open a stencil so you can read its masters.
-* [New-VisioShape](../shapes/new-visioshape.md) &mdash; drop a master onto a page.
+* [Open-VisioDocument](../documents/open-visiodocument.md): open a stencil so you can read its masters.
+* [New-VisioShape](../shapes/new-visioshape.md): drop a master onto a page.

@@ -2,7 +2,7 @@
 
 The **New-VisioControl** cmdlet adds a control handle to one or more shapes. A control handle is the yellow draggable diamond a user can grab to adjust a shape's geometry.
 
-Every parameter is optional &mdash; in practice you'll always want to supply at least `-X` and `-Y` so the handle has a position. The cell-style parameters take ShapeSheet **formulas** as strings (e.g. `"Width*0.5"`, `"0.25 in"`).
+Every parameter is optional; in practice you'll always want to supply at least `-X` and `-Y` so the handle has a position. The cell-style parameters take ShapeSheet **formulas** as strings (e.g. `"Width*0.5"`, `"0.25 in"`).
 
 ## Syntax
 

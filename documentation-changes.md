@@ -4,18 +4,18 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
-## 2026-05 — Runtime-failure pass
+## 2026-05: Runtime-failure pass
 
 A scripted pass over every PowerShell code block on the site, prompted by stale snippets surfaced while doing the same audit on the .NET-side gitbook. Each fix below was verified against the freshly-built Visio 4.6.1 module:
 
-* **`technical-notes/use-visioautomation.md`** &mdash; the script referenced `Get-VisioScriptingClient` (renamed to `Get-VisioClient`), `$sc.Assemblies` (no such property on `VisioScripting.Client`), `VisioAutomation.Geometry.Point` / `Rectangle` (the geometry primitives moved to `VisioAutomation.Core`), and `VisioAutomation.ShapeSheet.SRCConstants` (renamed to `VisioAutomation.Core.SrcConstants`). Rewritten using the modern type names; the `Add-Type` loop is gone because `Import-Module Visio` already loads the underlying assemblies.
-* **`cmdlets/pages/format-visiopage.md`** &mdash; the auto-layout example had the same broken `$sc.Assemblies | ForEach-Object { Add-Type -Path $_ }` loop. Removed it; the `New-Object VisioAutomation.Models.LayoutStyles.FlowchartLayoutStyle` call works directly after `Import-Module`.
-* **`cmdlets/custom-properties/examples.md`** &mdash; the `Write-Host` line dereferenced `$custompropcells.Value.Formula`, but `Value` is a `Core.CellValue` whose underlying property is `.Value`, not `.Formula`. Fixed.
-* **`samples/draw-fill-patterns.md`** &mdash; `New-VisioShape -Type Rectangle ...` (no `-Type` parameter) replaced with `New-VisioShape -Rectangle (New-VisioRectangle ...)`. Also `-Shapes` (plural) on `Set-VisioText` and `Set-VisioShapeCells` corrected to `-Shape`.
-* **`cmdlets/shapes/enumerate-selected-shapes.md`** &mdash; the description claimed `Get-VisioShape` with no arguments returned the currently-selected shapes; it actually returns every shape on the active page. Description, syntax block, and examples brought into agreement with `GetVisioShape.cs`.
-* **`cmdlets/shapecells/new-visioshapecells.md`** &mdash; the prose listed `XFormWidth, PinX` as example properties; `PinX` doesn't exist on `ShapeCells`, the property is `XFormPinX`. Corrected.
+* **`technical-notes/use-visioautomation.md`**: the script referenced `Get-VisioScriptingClient` (renamed to `Get-VisioClient`), `$sc.Assemblies` (no such property on `VisioScripting.Client`), `VisioAutomation.Geometry.Point` / `Rectangle` (the geometry primitives moved to `VisioAutomation.Core`), and `VisioAutomation.ShapeSheet.SRCConstants` (renamed to `VisioAutomation.Core.SrcConstants`). Rewritten using the modern type names; the `Add-Type` loop is gone because `Import-Module Visio` already loads the underlying assemblies.
+* **`cmdlets/pages/format-visiopage.md`**: the auto-layout example had the same broken `$sc.Assemblies | ForEach-Object { Add-Type -Path $_ }` loop. Removed it; the `New-Object VisioAutomation.Models.LayoutStyles.FlowchartLayoutStyle` call works directly after `Import-Module`.
+* **`cmdlets/custom-properties/examples.md`**: the `Write-Host` line dereferenced `$custompropcells.Value.Formula`, but `Value` is a `Core.CellValue` whose underlying property is `.Value`, not `.Formula`. Fixed.
+* **`samples/draw-fill-patterns.md`**: `New-VisioShape -Type Rectangle ...` (no `-Type` parameter) replaced with `New-VisioShape -Rectangle (New-VisioRectangle ...)`. Also `-Shapes` (plural) on `Set-VisioText` and `Set-VisioShapeCells` corrected to `-Shape`.
+* **`cmdlets/shapes/enumerate-selected-shapes.md`**: the description claimed `Get-VisioShape` with no arguments returned the currently-selected shapes; it actually returns every shape on the active page. Description, syntax block, and examples brought into agreement with `GetVisioShape.cs`.
+* **`cmdlets/shapecells/new-visioshapecells.md`**: the prose listed `XFormWidth, PinX` as example properties; `PinX` doesn't exist on `ShapeCells`, the property is `XFormPinX`. Corrected.
 
-## 2026-05 — Refresh against module 4.6.1
+## 2026-05: Refresh against module 4.6.1
 
 A large refresh aligning every cmdlet page with the **Visio PowerShell 4.6.1** module released on 2026-05-03. The work touched almost every page.
 
@@ -26,10 +26,10 @@ Cmdlets that previously had no documentation now have full pages:
 * [New-VisioShape](cmdlets/shapes/new-visioshape.md), [Remove-VisioShape](cmdlets/shapes/remove-visioshape.md)
 * [New-VisioPageCells](cmdlets/pages/new-visiopagecells.md), [Set-VisioPageCells](cmdlets/pages/set-visiopagecells.md)
 * [Get-VisioShapeCells](cmdlets/shapecells/get-visioshapecells.md), [New-VisioShapeCells](cmdlets/shapecells/new-visioshapecells.md)
-* [Get-VisioControl](cmdlets/control/get-visiocontrol.md), [New-VisioControl](cmdlets/control/new-visiocontrol.md), [Remove-VisioControl](cmdlets/control/remove-visiocontrol.md) &mdash; entirely new section
+* [Get-VisioControl](cmdlets/control/get-visiocontrol.md), [New-VisioControl](cmdlets/control/new-visiocontrol.md), [Remove-VisioControl](cmdlets/control/remove-visiocontrol.md): entirely new section
 * All seven [VisioApplication cmdlets](cmdlets/visioapplication/) (Close, Get, New, Out, Test, Undo, Redo)
-* [Copy-VisioPage](cmdlets/pages/invoke-visioduplicate-page.md), [Select-VisioPage](cmdlets/pages/select-visiopage-tbd.md), [Get-VisioText](cmdlets/text/get-visiotext.md) &mdash; previously marked `[TBD]`
-* [Other cmdlets](cmdlets/other-cmdlets.md) &mdash; a single page covering the small/utility cmdlets (`Get-VisioClient`, `Get-VisioLockCells`, `Import-VisioModel`, `Measure-VisioShape`, `New-VisioPoint`, `New-VisioRectangle`, `Select-VisioDocument`, `Test-VisioDocument`)
+* [Copy-VisioPage](cmdlets/pages/invoke-visioduplicate-page.md), [Select-VisioPage](cmdlets/pages/select-visiopage-tbd.md), [Get-VisioText](cmdlets/text/get-visiotext.md): previously marked `[TBD]`
+* [Other cmdlets](cmdlets/other-cmdlets.md): a single page covering the small/utility cmdlets (`Get-VisioClient`, `Get-VisioLockCells`, `Import-VisioModel`, `Measure-VisioShape`, `New-VisioPoint`, `New-VisioRectangle`, `Select-VisioDocument`, `Test-VisioDocument`)
 
 ### Standardized layout
 
@@ -57,15 +57,15 @@ The lock-related pages call out the version requirement explicitly so readers on
 
 Many example snippets in the previous docs referenced cmdlets, parameters, or values that don't exist in the module. They've all been corrected:
 
-* `Set-VisioPage` (used throughout the old `Get-VisioPage` page) is not a real cmdlet &mdash; references replaced with `Select-VisioPage`.
-* `Set-VisioDocument`, `Get-VisioScriptingClient`, `New-VisioGroup` &mdash; none of these exist; replaced with the actual cmdlets (`Select-VisioDocument`, `Get-VisioClient`, `Join-VisioShape`).
-* `Export-VisioPage -AllPages` &mdash; this parameter doesn't exist. Replaced with a `foreach` loop over `Get-VisioPage`.
-* `Select-VisioShape All` / `None` / `Invert` &mdash; the actual enum values are `SelectAll`, `SelectNone`, `InvertSelection`. PowerShell does not accept the abbreviated forms.
-* `Get-VisioShape -Recursive` &mdash; this parameter doesn't exist; removed.
-* `New-VisioShape -Masters X -Points Y,Z` &mdash; the actual parameters are singular `-Master` and `-Position` (and `-Position` takes `Point` objects, not loose numbers). Standardized to `-Master $m -Position (New-VisioPoint X Y)`.
-* `Format-VisioShape -NudgeX` for vertical nudges &mdash; the vertical equivalent is `-NudgeY`.
+* `Set-VisioPage` (used throughout the old `Get-VisioPage` page) is not a real cmdlet: references replaced with `Select-VisioPage`.
+* `Set-VisioDocument`, `Get-VisioScriptingClient`, `New-VisioGroup`: none of these exist; replaced with the actual cmdlets (`Select-VisioDocument`, `Get-VisioClient`, `Join-VisioShape`).
+* `Export-VisioPage -AllPages`: this parameter doesn't exist. Replaced with a `foreach` loop over `Get-VisioPage`.
+* `Select-VisioShape All` / `None` / `Invert`: the actual enum values are `SelectAll`, `SelectNone`, `InvertSelection`. PowerShell does not accept the abbreviated forms.
+* `Get-VisioShape -Recursive`: this parameter doesn't exist; removed.
+* `New-VisioShape -Masters X -Points Y,Z`: the actual parameters are singular `-Master` and `-Position` (and `-Position` takes `Point` objects, not loose numbers). Standardized to `-Master $m -Position (New-VisioPoint X Y)`.
+* `Format-VisioShape -NudgeX` for vertical nudges: the vertical equivalent is `-NudgeY`.
 * `Format-VisioWindow` parameter names in prose were `-To`, `-Value`, `-ValueRelative`; the actual names are `-ZoomTo`, `-Zoom`, `-ZoomRelative`.
-* `New-Object VisioAutomation.Geometry.Point(...)` &mdash; the `Geometry` namespace doesn't exist; the actual class is `VisioAutomation.Core.Point`. Examples switched to the idiomatic `New-VisioPoint X Y`.
+* `New-Object VisioAutomation.Geometry.Point(...)`: the `Geometry` namespace doesn't exist; the actual class is `VisioAutomation.Core.Point`. Examples switched to the idiomatic `New-VisioPoint X Y`.
 
 ### Publishing-to-PowerShell-Gallery rewrite
 

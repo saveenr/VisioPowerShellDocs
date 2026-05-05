@@ -1,6 +1,6 @@
 # Unlock-VisioShape
 
-The **Unlock-VisioShape** cmdlet clears lock cells on a shape's ShapeSheet. Each switch corresponds to a `Lock*` cell &mdash; pass the switches for the locks you want to disable. Locks not mentioned in the call are left unchanged.
+The **Unlock-VisioShape** cmdlet clears lock cells on a shape's ShapeSheet. Each switch corresponds to a `Lock*` cell; pass the switches for the locks you want to disable. Locks not mentioned in the call are left unchanged.
 
 When `-Shape` is omitted, the cmdlet operates on the active selection.
 
@@ -18,7 +18,7 @@ Unlock-VisioShape [-Aspect] [-Begin] [-CalcWH] [-Crop] [-CustProp] [-Delete]
 
 ## Parameters
 
-The available switches mirror those of [Lock-VisioShape](lock-visioshape.md) — see that page for the per-switch effect description. Each is `SwitchParameter` and optional. The non-switch parameter:
+The available switches mirror those of [Lock-VisioShape](lock-visioshape.md); see that page for the per-switch effect description. Each is `SwitchParameter` and optional. The non-switch parameter:
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -50,5 +50,5 @@ Unlock-VisioShape -Aspect -Begin -CalcWH -Crop -CustProp -Delete `
 
 ## See also
 
-* [Lock-VisioShape](lock-visioshape.md) &mdash; full description of each switch.
+* [Lock-VisioShape](lock-visioshape.md): full description of each switch.
 * `Get-VisioLockCells` (covered in the [Other cmdlets](../other-cmdlets.md) note).

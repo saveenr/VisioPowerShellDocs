@@ -31,5 +31,5 @@ Split-VisioShape -Shape $groups
 
 ## See also
 
-* [Join-VisioShape](create-groups.md) &mdash; the inverse: combine shapes into a group.
+* [Join-VisioShape](create-groups.md): the inverse: combine shapes into a group.
 * [Examples of Join-VisioShape and Split-VisioShape](examples.md)

@@ -33,7 +33,7 @@ You must be listed as an owner of the `Visio` package on PSGallery. New owners a
 
 ### 2. Generate an API key
 
-Log in to [https://www.powershellgallery.com/account/apikeys](https://www.powershellgallery.com/account/apikeys) and create a key scoped to `Push new packages and package versions` for `Visio`. Treat it like a password &mdash; rotate it if it ever leaks into a transcript or a screenshot.
+Log in to [https://www.powershellgallery.com/account/apikeys](https://www.powershellgallery.com/account/apikeys) and create a key scoped to `Push new packages and package versions` for `Visio`. Treat it like a password; rotate it if it ever leaks into a transcript or a screenshot.
 
 ### 3. Upgrade PowerShellGet (Windows PowerShell 5.1 only)
 
@@ -45,7 +45,7 @@ Install-Module PowerShellGet -Force -Scope CurrentUser -AllowClobber
 
 The `-AllowClobber` flag is required because the upgrade pulls in a newer `PackageManagement` whose cmdlet names overlap with the in-box version.
 
-**Close and reopen your PowerShell session after the upgrade** &mdash; the running session has the old PowerShellGet still loaded.
+**Close and reopen your PowerShell session after the upgrade**, the running session has the old PowerShellGet still loaded.
 
 PowerShell 7 ships with a current PowerShellGet, so this step doesn't apply there.
 
@@ -59,7 +59,7 @@ MSBUILD="/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current
 "$MSBUILD" VisioAutomation_2010/VisioAutomation2010.sln -p:Configuration=Debug -m
 ```
 
-If you bump the version in `Visio.psd1`, **rebuild before publishing** &mdash; otherwise the staged module ships with the old version. The release script catches this case and refuses to publish, but rebuilding upfront avoids the round-trip.
+If you bump the version in `Visio.psd1`, **rebuild before publishing**, otherwise the staged module ships with the old version. The release script catches this case and refuses to publish, but rebuilding upfront avoids the round-trip.
 
 ## Gotchas we've hit
 
@@ -109,7 +109,7 @@ For example, the 4.6.1 release is tagged `VisioPS_4.6.1`. This pattern parallels
 
 ## What the script does NOT do
 
-- It does not bump the version in `Visio.psd1` &mdash; do that manually as part of the release commit, alongside the corresponding `[Unreleased]` &rarr; `[<version>]` move in [`VisioPowerShell/CHANGELOG.md`](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md).
-- It does not build the solution &mdash; that's still a separate MSBuild invocation.
-- It does not publish the NuGet package &mdash; the .NET library has its own (currently manual) release process.
-- It does not sign the module DLLs &mdash; signing is a Phase 3 backlog item.
+- It does not bump the version in `Visio.psd1`: do that manually as part of the release commit, alongside the corresponding `[Unreleased]` &rarr; `[<version>]` move in [`VisioPowerShell/CHANGELOG.md`](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md).
+- It does not build the solution: that's still a separate MSBuild invocation.
+- It does not publish the NuGet package: the .NET library has its own (currently manual) release process.
+- It does not sign the module DLLs: signing is a Phase 3 backlog item.

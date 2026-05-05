@@ -2,7 +2,7 @@
 
 The **Export-VisioPage** cmdlet exports a single page to an image file. The output format is inferred from the filename extension. With no `-Page` argument the cmdlet exports the active page; pass `-Page` to export a specific one.
 
-`-Filename` is required and positional. The cmdlet exports **one** page per call &mdash; to export every page in a document, loop over `Get-VisioPage`.
+`-Filename` is required and positional. The cmdlet exports **one** page per call; to export every page in a document, loop over `Get-VisioPage`.
 
 ## Syntax
 
@@ -45,4 +45,4 @@ foreach ($page in Get-VisioPage) {
 ## See also
 
 * [Get-VisioPage](get-visiopage.md)
-* [Export-VisioShape](../shapes/export-visioshape.md) &mdash; export shape selections instead of whole pages.
+* [Export-VisioShape](../shapes/export-visioshape.md): export shape selections instead of whole pages.

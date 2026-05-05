@@ -1,6 +1,6 @@
 # Get help for a cmdlet
 
-PowerShell's built-in `Get-Help` works on every cmdlet in the module. The default form gives you a one-screen summary &mdash; description, syntax, parameter list.
+PowerShell's built-in `Get-Help` works on every cmdlet in the module. The default form gives you a one-screen summary: description, syntax, parameter list.
 
 ```powershell
 Get-Help Set-VisioText

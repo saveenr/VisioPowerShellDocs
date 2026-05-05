@@ -2,7 +2,7 @@
 
 The **Format-VisioWindow** cmdlet controls the active window's zoom level and (optionally) its on-screen rectangle.
 
-The cmdlet has three mutually-exclusive zoom forms &mdash; `-ZoomTo` for high-level zoom-to-fit operations, `-Zoom` for an absolute zoom factor, and `-ZoomRelative` for an incremental change. The window-rectangle parameters (`-Width`, `-Height`, `-X`, `-Y`) can be combined with any of those.
+The cmdlet has three mutually-exclusive zoom forms: `-ZoomTo` for high-level zoom-to-fit operations, `-Zoom` for an absolute zoom factor, and `-ZoomRelative` for an incremental change. The window-rectangle parameters (`-Width`, `-Height`, `-X`, `-Y`) can be combined with any of those.
 
 ## Syntax
 

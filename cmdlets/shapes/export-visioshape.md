@@ -45,5 +45,5 @@ Export-VisioShape -Filename "selection.html"
 
 ## See also
 
-* [Export-VisioPage](../pages/export-visiopage.md) &mdash; the whole-page counterpart.
-* [Select-VisioShape](selecting-shapes.md) &mdash; control what's selected before exporting.
+* [Export-VisioPage](../pages/export-visiopage.md): the whole-page counterpart.
+* [Select-VisioShape](selecting-shapes.md): control what's selected before exporting.

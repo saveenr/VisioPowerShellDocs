@@ -27,5 +27,5 @@ else {
 
 ## See also
 
-* [Select-VisioShape](selecting-shapes.md) &mdash; change the selection.
-* [Get-VisioShape](enumerate-selected-shapes.md) &mdash; read the current selection.
+* [Select-VisioShape](selecting-shapes.md): change the selection.
+* [Get-VisioShape](enumerate-selected-shapes.md): read the current selection.

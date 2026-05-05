@@ -1,10 +1,10 @@
 # Container
 
-A **container** in Visio is a special shape that visually groups other shapes &mdash; the contained shapes move with it, paste with it, and report it as their parent. Unlike a group, members can still be selected and edited individually.
+A **container** in Visio is a special shape that visually groups other shapes: the contained shapes move with it, paste with it, and report it as their parent. Unlike a group, members can still be selected and edited individually.
 
 The PowerShell module exposes one container cmdlet:
 
-* [`New-VisioContainer`](#new-visiocontainer) &mdash; drop a container master around the currently selected shapes.
+* [`New-VisioContainer`](#new-visiocontainer): drop a container master around the currently selected shapes.
 
 ## New-VisioContainer
 

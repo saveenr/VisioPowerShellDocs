@@ -2,7 +2,7 @@
 
 The **Out-VisioApplication** cmdlet renders a layout / model object into the bound Visio application as a real Visio drawing. It accepts five different model types via the pipeline; the cmdlet picks the right rendering path based on what came in.
 
-This is the rendering endpoint for the *automatic-diagram* family ([Org charts from XML](../../automatic-diagrams/drawing-org-charts.md), [Directed graphs from code](../../automatic-diagrams/drawing-directed-graphs.md), etc.) &mdash; you build a model object, then pipe it here.
+This is the rendering endpoint for the *automatic-diagram* family ([Org charts from XML](../../automatic-diagrams/drawing-org-charts.md), [Directed graphs from code](../../automatic-diagrams/drawing-directed-graphs.md), etc.): you build a model object, then pipe it here.
 
 ## Syntax
 
@@ -55,5 +55,5 @@ $orgchart | Out-VisioApplication
 
 ## See also
 
-* [Automatic diagrams](../../automatic-diagrams/README.md) &mdash; building the model objects this cmdlet consumes.
+* [Automatic diagrams](../../automatic-diagrams/README.md): building the model objects this cmdlet consumes.
 * `Import-VisioModel` (covered in the [Other cmdlets](../other-cmdlets.md) note).

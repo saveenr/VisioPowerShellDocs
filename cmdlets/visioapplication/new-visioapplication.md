@@ -2,7 +2,7 @@
 
 The **New-VisioApplication** cmdlet starts a new Visio application instance and binds the PowerShell session to it. Subsequent cmdlets that operate on "the active application" use this instance.
 
-The cmdlet does not write the application object to the pipeline (intentional &mdash; returning it has historically caused Visio to error on shutdown). Use [Get-VisioApplication](get-visioapplication.md) afterward if you need a handle.
+The cmdlet does not write the application object to the pipeline (intentional, returning it has historically caused Visio to error on shutdown). Use [Get-VisioApplication](get-visioapplication.md) afterward if you need a handle.
 
 ## Syntax
 

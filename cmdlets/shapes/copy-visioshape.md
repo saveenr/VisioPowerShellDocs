@@ -2,7 +2,7 @@
 
 The **Copy-VisioShape** cmdlet duplicates one or more shapes on the active page. It uses Visio's native duplicate operation, so the new shapes inherit all formatting and ShapeSheet values from the originals. After the cmdlet runs, the duplicated shapes become the active selection.
 
-The cmdlet does not return the new shapes &mdash; use [Get-VisioShape](selecting-shapes.md) afterward if you need handles to them.
+The cmdlet does not return the new shapes; use [Get-VisioShape](selecting-shapes.md) afterward if you need handles to them.
 
 ## Syntax
 

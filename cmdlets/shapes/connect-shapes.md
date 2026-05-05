@@ -1,6 +1,6 @@
 # Connect-VisioShape
 
-The **Connect-VisioShape** cmdlet draws connectors between shapes. `-From` and `-To` accept arrays so you can wire many connections in one call &mdash; element `i` of `-From` is connected to element `i` of `-To`. Pass `-Master` to use a specific connector master (e.g. "Dynamic Connector"); omit it for Visio's default connector.
+The **Connect-VisioShape** cmdlet draws connectors between shapes. `-From` and `-To` accept arrays so you can wire many connections in one call: element `i` of `-From` is connected to element `i` of `-To`. Pass `-Master` to use a specific connector master (e.g. "Dynamic Connector"); omit it for Visio's default connector.
 
 ## Syntax
 

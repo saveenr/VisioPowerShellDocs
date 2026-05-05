@@ -23,7 +23,7 @@ Save-VisioDocument [[-Filename] <String>] [-Document <Document>]
 Save-VisioDocument
 ```
 
-### Save As — save the active document to a new path
+### Save As: save the active document to a new path
 
 ```powershell
 Save-VisioDocument "d:\foo.vsd"
