@@ -4,6 +4,17 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-05 — Runtime-failure pass
+
+A scripted pass over every PowerShell code block on the site, prompted by stale snippets surfaced while doing the same audit on the .NET-side gitbook. Each fix below was verified against the freshly-built Visio 4.6.1 module:
+
+* **`technical-notes/use-visioautomation.md`** &mdash; the script referenced `Get-VisioScriptingClient` (renamed to `Get-VisioClient`), `$sc.Assemblies` (no such property on `VisioScripting.Client`), `VisioAutomation.Geometry.Point` / `Rectangle` (the geometry primitives moved to `VisioAutomation.Core`), and `VisioAutomation.ShapeSheet.SRCConstants` (renamed to `VisioAutomation.Core.SrcConstants`). Rewritten using the modern type names; the `Add-Type` loop is gone because `Import-Module Visio` already loads the underlying assemblies.
+* **`cmdlets/pages/format-visiopage.md`** &mdash; the auto-layout example had the same broken `$sc.Assemblies | ForEach-Object { Add-Type -Path $_ }` loop. Removed it; the `New-Object VisioAutomation.Models.LayoutStyles.FlowchartLayoutStyle` call works directly after `Import-Module`.
+* **`cmdlets/custom-properties/examples.md`** &mdash; the `Write-Host` line dereferenced `$custompropcells.Value.Formula`, but `Value` is a `Core.CellValue` whose underlying property is `.Value`, not `.Formula`. Fixed.
+* **`samples/draw-fill-patterns.md`** &mdash; `New-VisioShape -Type Rectangle ...` (no `-Type` parameter) replaced with `New-VisioShape -Rectangle (New-VisioRectangle ...)`. Also `-Shapes` (plural) on `Set-VisioText` and `Set-VisioShapeCells` corrected to `-Shape`.
+* **`cmdlets/shapes/enumerate-selected-shapes.md`** &mdash; the description claimed `Get-VisioShape` with no arguments returned the currently-selected shapes; it actually returns every shape on the active page. Description, syntax block, and examples brought into agreement with `GetVisioShape.cs`.
+* **`cmdlets/shapecells/new-visioshapecells.md`** &mdash; the prose listed `XFormWidth, PinX` as example properties; `PinX` doesn't exist on `ShapeCells`, the property is `XFormPinX`. Corrected.
+
 ## 2026-05 — Refresh against module 4.6.1
 
 A large refresh aligning every cmdlet page with the **Visio PowerShell 4.6.1** module released on 2026-05-03. The work touched almost every page.

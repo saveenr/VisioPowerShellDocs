@@ -45,7 +45,7 @@ Set-VisioShapeCells -Cells $allcells -Shape $shapes
 
 ### Discover the available properties
 
-`ShapeCells` exposes many properties &mdash; size and position (`XFormWidth`, `PinX`, ...), fill and line (`FillForeground`, `LineWeight`, ...), character formatting (`CharFont`, `CharSize`, ...), and more.
+`ShapeCells` exposes many properties &mdash; size and position (`XFormWidth`, `XFormPinX`, ...), fill and line (`FillForeground`, `LineWeight`, ...), character formatting (`CharFont`, `CharSize`, ...), and more.
 
 ```powershell
 $cells = New-VisioShapeCells

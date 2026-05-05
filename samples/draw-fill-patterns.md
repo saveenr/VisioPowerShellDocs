@@ -38,11 +38,11 @@ for ($i=0;$i -le 40;$i++)
     $shape2_cells.FillPattern = 0
     $shape2_cells.LinePattern = 0
 
-    $s1 = New-VisioShape -Type Rectangle $left,$bottom,$right,$top
-    $s2 = New-VisioShape -Type Rectangle $left,($bottom-0.5),$right,$bottom
-    Set-VisioText $i -Shapes $s2
-    Set-VisioShapeCells -Cells $shape1_cells -Shapes $s1
-    Set-VisioShapeCells -Cells $shape2_cells -Shapes $s2
+    $s1 = New-VisioShape -Rectangle (New-VisioRectangle $left $bottom $right $top)
+    $s2 = New-VisioShape -Rectangle (New-VisioRectangle $left ($bottom-0.5) $right $bottom)
+    Set-VisioText $i -Shape $s2
+    Set-VisioShapeCells -Cells $shape1_cells -Shape $s1
+    Set-VisioShapeCells -Cells $shape2_cells -Shape $s2
 }
 
 Format-VisioPage -BorderWidth 1.0 -BorderHeight 1.0 -FitContents

@@ -22,7 +22,7 @@ $props_for_shape1 = $shapedata[$shape1]
 
 foreach ($propname in $props_for_shape1.Keys) {
     $custompropcells = $props_for_shape1[$propname]
-    Write-Host "$propname = $($custompropcells.Value.Formula)"
+    Write-Host "$propname = $($custompropcells.Value)"
 }
 ```
 
