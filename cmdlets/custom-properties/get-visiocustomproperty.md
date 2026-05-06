@@ -25,7 +25,7 @@ $props = Get-VisioCustomProperty
 foreach ($shape in $props.Keys) {
     foreach ($name in $props[$shape].Keys) {
         $cp = $props[$shape][$name]
-        Write-Host "$($shape.NameU).$name = $($cp.Value)"
+        Write-Host "$($shape.NameU).$name = $($cp.Formula)"
     }
 }
 ```
@@ -56,7 +56,7 @@ foreach ($shape in $dict.Keys) {
         $cp = $dict[$shape][$name]
         Write-Host "--------------------------------------"
         Write-Host "Name      $name"
-        Write-Host "Value     $($cp.Value)"
+        Write-Host "Formula   $($cp.Formula)"
         Write-Host "Prompt    $($cp.Prompt)"
         Write-Host "Label     $($cp.Label)"
         Write-Host "Format    $($cp.Format)"
