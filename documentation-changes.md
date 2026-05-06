@@ -4,6 +4,13 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-05: Templates vs. stencils gotcha
+
+Surfaced by [issue #102](https://github.com/saveenr/VisioAutomation/issues/102) on the source repo: opening a Visio *template* (`.vst` / `.vstx`) with `Open-VisioDocument` returns a document whose `Masters` collection is usually empty, because templates don't carry their own masters. Instead, they reference companion stencils that Visio auto-loads alongside the template. The masters live on those companion documents. The original docs said templates were "opened as stencil documents" without flagging this distinction, which led real users to debug an empty `Get-VisioMaster` result against a successfully-opened template.
+
+* **`cmdlets/documents/open-visiodocument.md`**: added a top-of-page callout and a new "Templates vs. stencils" section showing two ways to reach the masters (open the companion `.vssx` directly, or walk `Application.Documents` after opening the template).
+* **`basics/drop-masters.md`**: added a short "If your master is in a template, not a stencil" subsection at the end, cross-linking to the new section on the `Open-VisioDocument` page.
+
 ## 2026-05: Runtime-failure pass
 
 A scripted pass over every PowerShell code block on the site, prompted by stale snippets surfaced while doing the same audit on the .NET-side gitbook. Each fix below was verified against the freshly-built Visio 4.6.1 module:

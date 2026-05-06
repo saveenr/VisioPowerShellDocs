@@ -48,3 +48,16 @@ Set-VisioText -Text "Hello World" -Shape $shape
 ```
 
 The `New-VisioShape` cmdlet returns the dropped shapes as `IVisio.Shape` objects.
+
+### **If your master is in a template, not a stencil**
+
+If you point `Open-VisioDocument` at a template (`.vst` / `.vstx`) and `Get-VisioMaster` comes back empty, that's because templates usually don't carry their own masters. Instead, the template references one or more companion stencils that Visio auto-loads alongside it. The masters live on those companion documents.
+
+The simplest fix is to open the companion stencil directly. For example, the Active Directory template `actdir_u.vstx` has its shapes in `actdir_u.vssx`:
+
+```
+$stencil = Open-VisioDocument "actdir_u.vssx"
+$g       = Get-VisioMaster -Name "Group" -Document $stencil
+```
+
+If you don't know the companion filename, walk `Application.Documents` after opening the template to find the loaded stencil. See [Templates vs. stencils](../cmdlets/documents/open-visiodocument.md#templates-vs-stencils) on the `Open-VisioDocument` page for the full pattern.
