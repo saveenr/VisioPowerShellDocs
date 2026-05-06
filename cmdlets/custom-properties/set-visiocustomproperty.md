@@ -61,12 +61,15 @@ Set-VisioCustomProperty -Name "Region" -Value "EU" -Shape $shapes[0],$shapes[2]
 ### Use the Cells form for full control
 
 ```powershell
-$cells = New-Object VisioAutomation.Shapes.CustomPropertyCells "ServerName"
-$cells.Label  = "Server"
-$cells.Prompt = "DNS name of the host"
+$cells = New-Object VisioAutomation.Shapes.CustomPropertyCells
+$cells.SetString("server01")         # SetNumber / SetBool / SetDate / SetFormula also available
+$cells.Label  = '"Server"'
+$cells.Prompt = '"DNS name of the host"'
 
 Set-VisioCustomProperty -Name "ServerName" -Cells $cells
 ```
+
+The `SetString` / `SetNumber` / `SetBool` / `SetDate` / `SetFormula` instance methods write a correctly-encoded Visio formula and (where applicable) set the `Type` cell to match. See the [Custom properties](https://saveenr.gitbook.io/visioautomation/custom-properties) page on the .NET-side gitbook for the per-Type behavior matrix.
 
 ## See also
 

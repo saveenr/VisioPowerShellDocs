@@ -4,6 +4,19 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-05: Custom-property typed setters
+
+[Issue #144](https://github.com/saveenr/VisioAutomation/issues/144) on the source repo landed: `CustomPropertyCells` and `UserDefinedCellCells` now expose typed instance setters (`SetString`, `SetNumber`, `SetBool`, `SetDate`, `SetFormula` on the former; `SetString`, `SetFormula` on the latter) that write a correctly-encoded Visio formula. `Value` was also renamed to `Formula` (with `Value` kept as an `[Obsolete]` alias) to surface that the field stores a Visio formula, not a literal value.
+
+PowerShell users hitting the cmdlet path through `-Value` aren't affected: `Set-VisioCustomProperty -Name "X" -Value "x"` continues to work as it always has, and the cmdlet handles encoding internally. The change is most visible to scripts that construct a `CustomPropertyCells` directly via `New-Object` and pass it through `-Cells`, or build a `DirectedGraphLayout` from code with custom properties on each node.
+
+* **[`automatic-diagrams/drawing-directed-graphs.md`](automatic-diagrams/drawing-directed-graphs.md)**: the "Adding custom properties to nodes" section was rewritten to lead with `$cp.SetString("v")` instead of `$cp.Value = "v"; $cp.EncodeValues()`. Adds a setter table and a note about the new `ArgumentException` thrown for unencoded direct `$cp.Formula = "..."` assignments. Drops the now-resolved [#144 ergonomics tracker](https://github.com/saveenr/VisioAutomation/issues/144) link.
+* **[`cmdlets/custom-properties/set-visiocustomproperty.md`](cmdlets/custom-properties/set-visiocustomproperty.md)**: the "Use the Cells form" example switched to the typed setters, with a cross-link to the per-Type behavior matrix on the .NET-side gitbook.
+
+The full per-Type characterization (numeric strings sneaking through `Type=String`, `Type=Boolean` accepting `"1"` as numeric, `Type=Date` accepting arbitrary quoted strings, empty / `null` / whitespace silently defaulting to `0`) is documented on the .NET-side [Custom properties](https://saveenr.gitbook.io/visioautomation/custom-properties) page; the PS-side pages link out to it rather than duplicating.
+
+Closes the long-running thread that started with [issue #117](https://github.com/saveenr/VisioAutomation/issues/117).
+
 ## 2026-05: Custom properties on directed-graph nodes from code
 
 Surfaced by [issue #117](https://github.com/saveenr/VisioAutomation/issues/117) on the source repo: a user building a directed graph with `DirectedGraphLayout.AddNode(...)` set `$cp.Value = "testVal"` directly on a `CustomPropertyCells`, expecting a string literal, and got a property whose value silently rendered as `0`. Root cause is that the `Value` (and `Label` / `Format` / `Prompt`) fields are Visio *formulas*, not literals; the bare word `testVal` evaluates to an unresolved name reference. The `Set-VisioCustomProperty` cmdlet sidesteps this by calling `EncodeValues()` internally, but the model-level path (used when you build a `DirectedGraphLayout` from code) leaves it to the caller.

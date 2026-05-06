@@ -25,26 +25,11 @@ $renderer.Render($p, $d)
 
 Each node returned from `$d.AddNode(...)` exposes a `CustomProperties` dictionary you can populate before rendering. The dictionary's values are `CustomPropertyCells` objects, the same record type used by the `Set-VisioCustomProperty` cmdlet.
 
-There is one important gotcha: the `Value` (and `Label` / `Format` / `Prompt`) fields on `CustomPropertyCells` are Visio *formulas*, not literal values. Setting `$cp.Value = "testVal"` stores the formula `testVal` (no quotes), which Visio evaluates as a name reference, fails to resolve, and silently substitutes a default (typically `0`). To store a string literal, the formula needs to include the quotes.
-
-Two ways to do that:
+The `Formula` field on `CustomPropertyCells` is a Visio formula, not a literal value (the field was named `Value` before 2026-05; the old name is preserved as an `[Obsolete]` alias). The recommended way to populate it is via the typed setters, which encode the formula correctly:
 
 ```powershell
-# Option A: call EncodeValues() before adding to the dictionary.
-# Quotes Value, Label, Format, and Prompt as needed.
 $cp = New-Object VisioAutomation.Shapes.CustomPropertyCells
-$cp.Value = "testVal"
-$cp.EncodeValues()
-
-$dic = New-Object VisioAutomation.Shapes.CustomPropertyDictionary
-$dic.Add("DisplayName", $cp)
-$n1.CustomProperties = $dic
-```
-
-```powershell
-# Option B: pre-quote the formula yourself.
-$cp = New-Object VisioAutomation.Shapes.CustomPropertyCells
-$cp.Value = '"testVal"'
+$cp.SetString("testVal")     # SetNumber, SetBool, SetDate, SetFormula also available
 
 $dic = New-Object VisioAutomation.Shapes.CustomPropertyDictionary
 $dic.Add("DisplayName", $cp)
@@ -53,12 +38,12 @@ $n1.CustomProperties = $dic
 
 After `$renderer.Render($p, $d)`, the rendered shape carries the property correctly.
 
-Numeric, boolean, and date values are not strings and don't need quoting; pass them as literals via the typed constructors:
+| Setter | What it does |
+| --- | --- |
+| `$cp.SetString("hello")` | Encodes as a Visio string literal. Sets `Type=0` (String). |
+| `$cp.SetNumber(42)` | Numeric formula. Sets `Type=2` (Number). |
+| `$cp.SetBool($true)` | `TRUE` or `FALSE`. Sets `Type=3` (Boolean). |
+| `$cp.SetDate([datetime]::Now)` | Wraps in `DATETIME(...)`. Sets `Type=5` (Date). |
+| `$cp.SetFormula("=...")` | Raw escape hatch. Writes the formula verbatim, leaves `Type` untouched. |
 
-```powershell
-$cp_num  = New-Object VisioAutomation.Shapes.CustomPropertyCells 42
-$cp_bool = New-Object VisioAutomation.Shapes.CustomPropertyCells $true
-$cp_date = New-Object VisioAutomation.Shapes.CustomPropertyCells ([System.DateTime]::Now)
-```
-
-The `Set-VisioCustomProperty` cmdlet calls `EncodeValues()` internally, so its callers don't have to think about this. The model-level path (used here, when you build a `DirectedGraphLayout` from code) leaves it to the caller. [Issue #144](https://github.com/saveenr/VisioAutomation/issues/144) tracks options for making this more ergonomic.
+If you bypass the setters and assign directly to `$cp.Formula`, an unencoded string (`$cp.Formula = "testVal"`) raises an `ArgumentException` from `$renderer.Render` with a diagnostic pointing at the setters. The `Set-VisioCustomProperty` cmdlet handles encoding internally, so its callers don't need to think about any of this; this section applies only when you build a `DirectedGraphLayout` from code, as shown above.
