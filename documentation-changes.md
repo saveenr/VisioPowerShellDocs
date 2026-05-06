@@ -4,6 +4,12 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-05: Custom properties on directed-graph nodes from code
+
+Surfaced by [issue #117](https://github.com/saveenr/VisioAutomation/issues/117) on the source repo: a user building a directed graph with `DirectedGraphLayout.AddNode(...)` set `$cp.Value = "testVal"` directly on a `CustomPropertyCells`, expecting a string literal, and got a property whose value silently rendered as `0`. Root cause is that the `Value` (and `Label` / `Format` / `Prompt`) fields are Visio *formulas*, not literals; the bare word `testVal` evaluates to an unresolved name reference. The `Set-VisioCustomProperty` cmdlet sidesteps this by calling `EncodeValues()` internally, but the model-level path (used when you build a `DirectedGraphLayout` from code) leaves it to the caller.
+
+Patched [`automatic-diagrams/drawing-directed-graphs.md`](automatic-diagrams/drawing-directed-graphs.md) with a new "Adding custom properties to nodes" section that explains the formula-vs-literal distinction and shows both ways to store a string (`EncodeValues()` or pre-quoting). Cross-links the open [API ergonomics issue (#144)](https://github.com/saveenr/VisioAutomation/issues/144) so readers know the foot-gun is being looked at. Same patch shape was applied to the .NET-side gitbook's [Custom properties](https://saveenr.gitbook.io/visioautomation/custom-properties) page.
+
 ## 2026-05: Templates vs. stencils gotcha
 
 Surfaced by [issue #102](https://github.com/saveenr/VisioAutomation/issues/102) on the source repo: opening a Visio *template* (`.vst` / `.vstx`) with `Open-VisioDocument` returns a document whose `Masters` collection is usually empty, because templates don't carry their own masters. Instead, they reference companion stencils that Visio auto-loads alongside the template. The masters live on those companion documents. The original docs said templates were "opened as stencil documents" without flagging this distinction, which led real users to debug an empty `Get-VisioMaster` result against a successfully-opened template.
