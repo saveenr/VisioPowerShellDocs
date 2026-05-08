@@ -4,6 +4,10 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-05: Version compatibility reference
+
+Added a new [Version compatibility](developer-info/version-compatibility.md) page (under the **Developer Info** section) that maps each released `Visio` module version to its supported PowerShell host, bundled DLL target framework, Visio PIA baseline, and contemporaneous `VisioAutomation2010` NuGet release. The modern era (`4.6.1` through `4.7.2`) is sourced from the `Visio.psd1` and csproj at each tag; pre-`4.6.1` rows are best-effort, drawn from the existing [Release history](developer-info/release-history.md). The page also calls out that the module's manifest still declares `PowerShellVersion = '2.0'` for historical reasons, but the actual minimum is PowerShell 5.1 on .NET Framework 4.5.2 (anything older fails at module-import time). Cross-links to the matching [.NET-side compatibility table](https://saveenr.gitbook.io/visioautomation/version-compatibility). Closes [issue #161](https://github.com/saveenr/VisioAutomation/issues/161).
+
 ## 2026-05: Custom-property typed setters
 
 [Issue #144](https://github.com/saveenr/VisioAutomation/issues/144) on the source repo landed: `CustomPropertyCells` and `UserDefinedCellCells` now expose typed instance setters (`SetString`, `SetNumber`, `SetBool`, `SetDate`, `SetFormula` on the former; `SetString`, `SetFormula` on the latter) that write a correctly-encoded Visio formula. `Value` was also renamed to `Formula` (with `Value` kept as an `[Obsolete]` alias) to surface that the field stores a Visio formula, not a literal value.

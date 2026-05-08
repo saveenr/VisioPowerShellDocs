@@ -128,5 +128,6 @@
 ## Developer Info
 
 * [Release history](developer-info/release-history.md)
+* [Version compatibility](developer-info/version-compatibility.md)
 * [Publish to PowerShell Gallery](developer-info/publishing-to-powershell-gallery.md)
 * [Debug with Visual Studio](developer-info/debug-with-visual-studio.md)
