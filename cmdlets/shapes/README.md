@@ -41,6 +41,10 @@ Locks live as cells in the shape's ShapeSheet (`LockMoveX`, `LockDelete`, `LockT
 * [`Lock-VisioShape`](lock-visioshape.md): enable specific lock cells (1).
 * [`Unlock-VisioShape`](unlock-visioshape.md): clear specific lock cells (0).
 
+## On the C# side
+
+Shape-level operations on the C# side are spread across several command groups on the VisioAutomation gitbook: [`client.Selection`](https://saveenr.gitbook.io/visioautomation/visio-scripting/selection) (current-selection operations), [`client.Draw`](https://saveenr.gitbook.io/visioautomation/visio-scripting/draw) (draw primitives), [`client.Arrange`](https://saveenr.gitbook.io/visioautomation/visio-scripting/arrange) (align, distribute, nudge), [`client.Grouping`](https://saveenr.gitbook.io/visioautomation/visio-scripting/grouping) (group / ungroup), [`client.Lock`](https://saveenr.gitbook.io/visioautomation/visio-scripting/lock) (lock cells), [`client.Hyperlink`](https://saveenr.gitbook.io/visioautomation/visio-scripting/hyperlink), and [`client.Connection`](https://saveenr.gitbook.io/visioautomation/visio-scripting/connection). See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.
+
 ### Related
 
 * [ShapeCells](../shapecells/README.md): reading and writing arbitrary ShapeSheet cells.

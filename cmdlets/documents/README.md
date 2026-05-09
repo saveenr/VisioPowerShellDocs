@@ -9,3 +9,7 @@ A Visio **document** is the file you open in Visio: a drawing (`.vsd`, `.vsdx`) 
 * [`Save-VisioDocument`](save-visiodocument.md): save a document, with optional Save-As path.
 
 The two related cmdlets [`Select-VisioDocument`](../other-cmdlets.md) (switch which document is active) and [`Test-VisioDocument`](../other-cmdlets.md) (boolean: is any document open?) are documented in the [Other cmdlets](../other-cmdlets.md) note.
+
+## On the C# side
+
+These cmdlets wrap the [`client.Document`](https://saveenr.gitbook.io/visioautomation/visio-scripting/document) command group on the VisioAutomation gitbook. See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.

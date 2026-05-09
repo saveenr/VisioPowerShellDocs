@@ -12,3 +12,7 @@ The Visio module ships a few small or specialised cmdlets that don't have their 
 | `New-VisioRectangle` | Constructs a `Rectangle` value: `New-VisioRectangle Left Bottom Right Top`. Used by `New-VisioShape -Rectangle`/`-Oval`. |
 | `Select-VisioDocument` | Activates a document so that subsequent cmdlets which target the "active document" use it. |
 | `Test-VisioDocument` | Boolean. `True` if a document is currently open in the bound Visio application. |
+
+## On the C# side
+
+These cmdlets dispatch across several VisioScripting command groups depending on what they do; see [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full index.

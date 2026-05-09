@@ -4,3 +4,7 @@ Each Visio shape can carry a single text string. The **Text** cmdlets read and w
 
 * [`Get-VisioText`](get-visiotext.md): read the text of one or more shapes.
 * [`Set-VisioText`](set-visiotext.md): set the text on one or more shapes (single string broadcast to every shape, or an array zipped position-for-position).
+
+## On the C# side
+
+These cmdlets wrap the [`client.Text`](https://saveenr.gitbook.io/visioautomation/visio-scripting/text) command group on the VisioAutomation gitbook. See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.

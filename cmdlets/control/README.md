@@ -7,3 +7,7 @@ These cmdlets work with **control handles**: the yellow draggable diamonds attac
 * [`Remove-VisioControl`](remove-visiocontrol.md): delete a control handle by index.
 
 A shape can have any number of control handles. Indices start at `0`.
+
+## On the C# side
+
+These cmdlets wrap the [`client.Control`](https://saveenr.gitbook.io/visioautomation/visio-scripting/control) command group on the VisioAutomation gitbook. See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.

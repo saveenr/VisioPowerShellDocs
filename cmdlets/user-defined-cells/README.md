@@ -7,3 +7,7 @@ A shape's ShapeSheet has a **User-Defined Cells** section: a list of named cells
 * [`Remove-VisioUserDefinedCell`](remove-visiouserdefinedcell.md): delete a named cell.
 
 For UI-facing properties (Name / Value / Label / Prompt / Type / Format etc., shown in Visio's Shape Data window), see [Custom properties](../custom-properties/README.md) instead.
+
+## On the C# side
+
+These cmdlets wrap the [`client.UserDefinedCell`](https://saveenr.gitbook.io/visioautomation/visio-scripting/user-defined-cell) command group on the VisioAutomation gitbook. See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.

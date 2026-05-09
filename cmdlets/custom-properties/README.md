@@ -8,3 +8,7 @@ Visio's **custom properties** (also known as *shape data*) are user-facing key/v
 * [Examples](examples.md): an end-to-end walkthrough.
 
 For internal-use named values (used as variables in shape formulas, not surfaced in the UI), see [User-defined cells](../user-defined-cells/README.md) instead.
+
+## On the C# side
+
+These cmdlets wrap the [`client.CustomProperty`](https://saveenr.gitbook.io/visioautomation/visio-scripting/custom-property) command group on the VisioAutomation gitbook. See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.

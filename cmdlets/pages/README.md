@@ -12,3 +12,7 @@ A **page** is one canvas surface inside a Visio document. A document has at leas
 * [`Select-VisioPage`](select-visiopage-tbd.md): make a specific page the active one.
 
 The PageSheet of a page is its ShapeSheet equivalent; see the related [PageCells](../pagecells.md) section for [`New-VisioPageCells`](new-visiopagecells.md) / [`Set-VisioPageCells`](set-visiopagecells.md), which write to the PageSheet.
+
+## On the C# side
+
+These cmdlets wrap the [`client.Page`](https://saveenr.gitbook.io/visioautomation/visio-scripting/page) command group on the VisioAutomation gitbook. See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.

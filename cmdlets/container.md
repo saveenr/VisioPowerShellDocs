@@ -43,3 +43,7 @@ The cmdlet returns the new container shape.
 * The drop uses Visio's native container API, so the result is a real Visio container (`msvStructureType = "Container"`), not just a backdrop shape.
 * If nothing is selected when the cmdlet runs, the container is dropped empty.
 * Container stencil filenames vary by Visio version. `SDCONT_U.VSSX` is the typical Visio 2013+ Universal-units container stencil.
+
+## On the C# side
+
+These cmdlets wrap the [`client.Container`](https://saveenr.gitbook.io/visioautomation/visio-scripting/container) command group on the VisioAutomation gitbook. See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.

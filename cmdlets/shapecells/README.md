@@ -7,3 +7,7 @@ These cmdlets work with the ShapeSheet of shapes: size, position, fill, line, ch
 * `Set-VisioShapeCells`: write a populated `ShapeCells` to one or more shapes (covered in [Shape cells](working-with-shape-cells.md) and [Set-VisioShapeCells for text](format-text.md)).
 
 The pattern is the same for all of them: build a cells object, set the properties you care about, write it back.
+
+## On the C# side
+
+Cell-level shape operations on the C# side go through [`client.ShapeSheet`](https://saveenr.gitbook.io/visioautomation/visio-scripting/shape-sheet), which exposes the batch reader / writer pattern. See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.

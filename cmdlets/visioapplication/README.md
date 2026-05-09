@@ -19,3 +19,7 @@ The PowerShell session binds to one Visio application at a time. Most cmdlets in
 ### Diagram rendering
 
 * [`Out-VisioApplication`](out-visioapplication.md): render a model object (org chart, directed graph, grid, data table, XML) into the bound application as a real drawing. The endpoint of the [Automatic diagrams](../../automatic-diagrams/README.md) family.
+
+## On the C# side
+
+These cmdlets wrap the [`client.Application`](https://saveenr.gitbook.io/visioautomation/visio-scripting/application) command group on the VisioAutomation gitbook. See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.

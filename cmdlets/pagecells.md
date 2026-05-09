@@ -54,3 +54,7 @@ $pages_dt = Get-VisioPageCells -Page $pages
 
 Write-Host $pages_dt
 ```
+
+## On the C# side
+
+Page-cell-level operations on the C# side go through [`client.ShapeSheet`](https://saveenr.gitbook.io/visioautomation/visio-scripting/shape-sheet) (the same reader / writer pattern that handles ShapeSheet on shapes also applies to a page's PageSheet). See [VisioScripting.Client](https://saveenr.gitbook.io/visioautomation/visio-scripting) for the full facade index.
