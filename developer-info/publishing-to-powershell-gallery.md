@@ -60,12 +60,11 @@ PowerShell 7 ships with a current PowerShellGet, so this step doesn't apply ther
 
 ### 4. Build the solution in Release
 
-The release script reads from `bin/Release`, so build the solution before staging:
+The release script reads from `bin/Release`, so build the solution before staging. Use VS 2026 and the .NET 10 SDK selected by `global.json`; the module's .NET Framework target is unchanged. From the source repository root in a VS 2026 Developer PowerShell:
 
-```bash
-MSBUILD="/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/MSBuild.exe"
-"$MSBUILD" VisioAutomation_2010/VisioAutomation2010.sln -t:Restore
-"$MSBUILD" VisioAutomation_2010/VisioAutomation2010.sln -p:Configuration=Release -m
+```powershell
+msbuild VisioAutomation_2010\VisioAutomation2010.slnx -restore -p:Configuration=Release -m
+if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }
 ```
 
 If you bump the version in `Visio.psd1`, **rebuild before publishing**, otherwise the staged module ships with the old version. The release script catches this case and refuses to publish, but rebuilding upfront avoids the round-trip.
