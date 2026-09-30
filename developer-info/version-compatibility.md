@@ -18,7 +18,7 @@ These versions are documented in [`VisioPowerShell/CHANGELOG.md`](https://github
 
 ### About the `Visio.psd1` `PowerShellVersion = '2.0'` claim
 
-The module's manifest historically declares `PowerShellVersion = '2.0'` and `CLRVersion = '4.0'`. These declarations predate the move to `net452` binaries and are not accurate for the modern releases. The actual minimum is **PowerShell 5.1 on .NET Framework 4.5.2**, because that is what the bundled `VisioPS.dll` and its dependencies require to load. Older PowerShell hosts will fail at module-import time with an assembly-load error. Updating the manifest declarations is tracked separately and does not change the runtime requirements.
+Historical release manifests declare `PowerShellVersion = '2.0'` and `CLRVersion = '4.0'`. These declarations predate the move to `net452` binaries. Current source has corrected the manifest to `PowerShellVersion = '5.1'` and removed the stale CLR declaration; this change is recorded under `[Unreleased]` in the module changelog. Use Windows PowerShell 5.1 for the verified automation workflow. The shipping assemblies still target .NET Framework 4.5.2.
 
 ## Pre-changelog era
 

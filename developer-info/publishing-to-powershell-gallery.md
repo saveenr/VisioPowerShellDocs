@@ -2,7 +2,16 @@
 
 The Visio module ships from [https://www.powershellgallery.com/packages/Visio/](https://www.powershellgallery.com/packages/Visio/).
 
-## Quick path (recommended)
+## CI release path (recommended)
+
+The source repository has a two-stage release flow. Prepare the version bump and move changelog entries from `[Unreleased]` to `[<version>]` before running it:
+
+1. `release-psmodule.yml` builds Release binaries and creates a GitHub Release with the module ZIP. Its `dry_run` option builds artifacts without creating a release or tag.
+2. `publish-psmodule.yml` takes that release tag, validates the attached module, and publishes it using the `PSGALLERY_API_KEY` repository secret. Its `dry_run` option skips publication.
+
+Run the Visio integration suite locally before release; hosted CI does not run Visio. See the source repository's [build guide](https://github.com/saveenr/VisioAutomation/blob/master/docs/BUILDING.md) and [handover guide](https://github.com/saveenr/VisioAutomation/blob/master/docs/HANDOVER.md).
+
+## Local publishing fallback
 
 The repo includes a release script that handles every step end-to-end:
 
@@ -16,7 +25,7 @@ The script:
 1. Verifies the running PowerShell host is at least 5.1 (Publish-Module's floor) and prints what's running.
 2. Forces TLS 1.2 (PSGallery rejects anything older).
 3. Reads `ModuleVersion` from `Visio.psd1`.
-4. Stages the Debug build into the user-modules folder via `InstallForCurrentUser.ps1`, then verifies the staged manifest version matches the source version (catches stale-build mismatches).
+4. Stages the Release build into the user-modules folder via `InstallForCurrentUser.ps1 -Configuration Release`, then verifies the staged manifest version matches the source version (catches stale-build mismatches).
 5. Calls `Publish-Module -Path` (not `-Name`, to avoid the PS 5.1 vs 7 module-path divergence).
 6. Polls PSGallery for up to 30 seconds to verify the new version is actually live.
 7. Only then tags `HEAD` as `VisioPS_<version>` and pushes the tag.
@@ -49,14 +58,14 @@ The `-AllowClobber` flag is required because the upgrade pulls in a newer `Packa
 
 PowerShell 7 ships with a current PowerShellGet, so this step doesn't apply there.
 
-### 4. Build the solution in Debug
+### 4. Build the solution in Release
 
-The release script reads from `bin/Debug`, so build the solution before staging:
+The release script reads from `bin/Release`, so build the solution before staging:
 
 ```bash
 MSBUILD="/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/MSBuild.exe"
-"$MSBUILD" VisioAutomation_2010/VisioAutomation2010.sln -t:Restore -p:RestorePackagesConfig=true
-"$MSBUILD" VisioAutomation_2010/VisioAutomation2010.sln -p:Configuration=Debug -m
+"$MSBUILD" VisioAutomation_2010/VisioAutomation2010.sln -t:Restore
+"$MSBUILD" VisioAutomation_2010/VisioAutomation2010.sln -p:Configuration=Release -m
 ```
 
 If you bump the version in `Visio.psd1`, **rebuild before publishing**, otherwise the staged module ships with the old version. The release script catches this case and refuses to publish, but rebuilding upfront avoids the round-trip.
@@ -83,7 +92,7 @@ If the release script breaks for an unrelated reason, you can do the steps by ha
     [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 # 2. Stage the build
-& '<repo>\VisioAutomation_2010\VisioPowerShell\InstallForCurrentUser.ps1'
+& '<repo>\VisioAutomation_2010\VisioPowerShell\InstallForCurrentUser.ps1' -Configuration Release
 
 # 3. Publish (use -Path, not -Name)
 $staged = Join-Path $home 'Documents\WindowsPowerShell\Modules\Visio'
@@ -111,5 +120,5 @@ For example, the 4.6.1 release is tagged `VisioPS_4.6.1`. This pattern parallels
 
 - It does not bump the version in `Visio.psd1`: do that manually as part of the release commit, alongside the corresponding `[Unreleased]` &rarr; `[<version>]` move in [`VisioPowerShell/CHANGELOG.md`](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md).
 - It does not build the solution: that's still a separate MSBuild invocation.
-- It does not publish the NuGet package: the .NET library has its own (currently manual) release process.
+- It does not publish the NuGet package: the .NET library uses the separate `release-nuget.yml` and `publish-nuget.yml` workflows.
 - It does not sign the module DLLs: signing is a Phase 3 backlog item.
