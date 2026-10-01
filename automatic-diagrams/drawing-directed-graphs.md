@@ -34,6 +34,8 @@ The layout is controlled by the `LayoutOptions` of the renderer. When you call `
 | `ScalingFactor` | `14` | Converts between inches and the layout engine's units. Node sizes are multiplied by it before layout, but the engine's own spacing is fixed, so a larger value gives tighter gaps relative to node size and a smaller value gives looser spacing. |
 | `DefaultShapeSize` | `1.0 x 0.75` | A fallback node size in inches. In practice it does not apply: a node with no `Size` is laid out and drawn at the size of its master. Set `Size` on the node to override the master's size. |
 | `PageBorderWidth` | `0.5 x 0.5` | Margin in inches around the finished drawing. |
+| `EdgeLabelBoxSize` | `1.0 x 0.5` | Space in inches reserved for each edge's label, for every edge whether or not it has a label. Smaller values give tighter gaps between layers. Unreleased; see [Tightening the layout](#tightening-the-layout). |
+| `LayerSeparation` | `$null` | Minimum distance in inches between layers. `$null` uses the layout engine's own default. Unreleased; see [Tightening the layout](#tightening-the-layout). |
 
 This example lays the graph out left to right with routed connectors:
 
@@ -56,6 +58,38 @@ $renderer.LayoutOptions.Direction = [VisioAutomation.Models.Layouts.DirectedGrap
 $renderer.LayoutOptions.UseDynamicConnectors = $false
 $renderer.Render($p, $d)
 ```
+
+## Tightening the layout
+
+`EdgeLabelBoxSize` and `LayerSeparation` are in current source and are an unreleased addition after VisioAutomation NuGet 3.0.0. A Visio PowerShell module built on the 3.0.0 library does not have these properties, and setting them there fails.
+
+Every edge reserves room for a label whether or not it has one, which widens the gaps between layers. Shrinking `EdgeLabelBoxSize` reclaims that space, and `LayerSeparation` sets the minimum distance between layers directly. This lays the left-to-right graph out more tightly:
+
+```powershell
+Import-Module Visio
+
+$d = New-Object VisioAutomation.Models.Layouts.DirectedGraph.DirectedGraphLayout
+$n1 = $d.AddNode("1", "Node1", "BASIC_U.VSS", "Rectangle")
+$n2 = $d.AddNode("2", "Node2", "BASIC_U.VSS", "Rectangle")
+$n3 = $d.AddNode("3", "Node3", "BASIC_U.VSS", "Rectangle")
+$c1 = $d.AddEdge("4", $n1, $n2, "", [VisioAutomation.Models.ConnectorType]::Straight)
+$c2 = $d.AddEdge("5", $n2, $n3, "", [VisioAutomation.Models.ConnectorType]::Straight)
+
+New-VisioApplication
+New-VisioDocument
+$p = New-VisioPage
+
+$renderer = New-Object VisioAutomation.Models.Layouts.DirectedGraph.MsaglRenderer
+$renderer.LayoutOptions.Direction = [VisioAutomation.Models.Layouts.DirectedGraph.MsaglDirection]::LeftToRight
+$renderer.LayoutOptions.UseDynamicConnectors = $false
+$renderer.LayoutOptions.EdgeLabelBoxSize = New-Object VisioAutomation.Core.Size(0.8, 0.12)
+$renderer.LayoutOptions.LayerSeparation = 0.25
+$renderer.Render($p, $d)
+```
+
+In this example the gap between neighboring nodes drops from about 3.1 inches (without the two settings) to about 1.5 inches, and the page from about 12.3 to 9.0 inches wide.
+
+The same settings are available in directed graph XML as the `layerseparation`, `edgelabelboxwidth` and `edgelabelboxheight` attributes of `<renderoptions>`; see the [XML format](https://saveenr.gitbook.io/visioautomation/directed-graph-xml#renderoptions).
 
 For the full object model, see [Directed graph](https://saveenr.gitbook.io/visioautomation/models/directed-graph) in the VisioAutomation docs.
 
