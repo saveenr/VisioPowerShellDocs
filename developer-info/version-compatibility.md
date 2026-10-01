@@ -10,12 +10,13 @@ These versions are documented in [`VisioPowerShell/CHANGELOG.md`](https://github
 
 | Module version | Released | PowerShell host | Bundled DLL TFM | Visio PIA baseline | Bundled VisioAutomation2010 | Release notes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `4.8.0` | 2026-10-01 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.2.0` (matching commit) | [4.8.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#473---2026-10-01) |
 | `4.7.3` | 2026-09-30 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.1.0` (matching commit) | [4.7.3 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#473---2026-09-30) |
 | `4.7.2` | 2026-05-06 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.0.0` (matching commit) | [4.7.2 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#472---2026-05-06) |
 | `4.7.0` | 2026-05-06 | Windows PowerShell 5.1; PowerShell 7+ via the compatibility shim | `net452` | Visio 2010 PIA (v14) | `3.0.0` (matching commit) | [4.7.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#470---2026-05-06) |
 | `4.6.1` | 2026-05-03 | Windows PowerShell 5.1; PowerShell 7+ via the compatibility shim | `net452` | Visio 2010 PIA (v14) | `2.6.0` (matching commit; tag only, not on nuget.org) | [4.6.1 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#461---2026-05-03) |
 
-`4.7.3` is the current published release on [PSGallery](https://www.powershellgallery.com/packages/Visio).
+`4.8.0` is the current published release on [PSGallery](https://www.powershellgallery.com/packages/Visio).
 
 ### About the `Visio.psd1` `PowerShellVersion = '2.0'` claim
 
