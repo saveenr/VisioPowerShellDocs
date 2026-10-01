@@ -4,6 +4,10 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-10: Get-VisioPage -ID and -Index
+
+The [Get-VisioPage](cmdlets/pages/get-visiopage.md) page now describes `-ID` as a real Visio page ID, which is what it always said, and documents the new `-Index` parameter for positions (counting from 1). In module 4.7.3 and earlier, `-ID` silently treated its numbers as positions, so the page carries a note on how to move a script from `-ID` to `-Index` ([#232](https://github.com/saveenr/VisioAutomation/issues/232)). The behavior change is in an unreleased version, so the wording should become a plain version statement when the next module release ships.
+
 ## 2026-05: Version compatibility reference
 
 Added a new [Version compatibility](developer-info/version-compatibility.md) page (under the **Developer Info** section) that maps each released `Visio` module version to its supported PowerShell host, bundled DLL target framework, Visio PIA baseline, and contemporaneous `VisioAutomation2010` NuGet release. The modern era (`4.6.1` through `4.7.2`) is sourced from the `Visio.psd1` and csproj at each tag; pre-`4.6.1` rows are best-effort, drawn from the existing [Release history](developer-info/release-history.md). The page also calls out that the module's manifest still declares `PowerShellVersion = '2.0'` for historical reasons, but the actual minimum is PowerShell 5.1 on .NET Framework 4.5.2 (anything older fails at module-import time). Cross-links to the matching [.NET-side compatibility table](https://saveenr.gitbook.io/visioautomation/version-compatibility). Closes [issue #161](https://github.com/saveenr/VisioAutomation/issues/161).
