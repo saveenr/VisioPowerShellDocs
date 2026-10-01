@@ -66,5 +66,5 @@ $orgchart | Out-VisioApplication
 
 ## See also
 
-* [Automatic diagrams](../../automatic-diagrams/README.md): building the model objects this cmdlet consumes.
+* [Automatic diagrams](../../automatic-diagrams/README.md): building the model objects this cmdlet consumes, including [grids](../../automatic-diagrams/drawing-grids.md), [data tables](../../automatic-diagrams/drawing-data-tables.md) and [XML structure trees](../../automatic-diagrams/drawing-xml-models.md).
 * `Import-VisioModel` (covered in the [Other cmdlets](../other-cmdlets.md) note).

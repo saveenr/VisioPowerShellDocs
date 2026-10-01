@@ -23,6 +23,42 @@ $renderer.Render($p, $d)
 
 Render draws onto the page you pass it. To draw a loaded `DirectedGraphDocument` (for example the output of `Import-VisioModel`) use `Out-VisioApplication` instead. It needs an attached Visio application (run `New-VisioApplication` first; otherwise it throws "A Visio Application Instance is not attached"). It draws into a new document created from the document's template (the default template), with one page per `<page>` element, not onto the current page.
 
+## Layout options
+
+The layout is controlled by the `LayoutOptions` of the renderer. When you call `$renderer.Render($p, $d)` directly, set them on `$renderer.LayoutOptions`; the renderer does not read the options stored on the graph.
+
+| Property | Default | What it does |
+| --- | --- | --- |
+| `Direction` | `TopToBottom` | Which way the graph flows: `TopToBottom`, `BottomToTop`, `LeftToRight` or `RightToLeft`. |
+| `UseDynamicConnectors` | `$true` | `$true` uses Visio's dynamic connectors, which re-route when shapes move. `$false` keeps the geometry the layout engine computed. |
+| `ScalingFactor` | `14` | Converts between inches and the layout engine's units. Node sizes are multiplied by it before layout, but the engine's own spacing is fixed, so a larger value gives tighter gaps relative to node size and a smaller value gives looser spacing. |
+| `DefaultShapeSize` | `1.0 x 0.75` | A fallback node size in inches. In practice it does not apply: a node with no `Size` is laid out and drawn at the size of its master. Set `Size` on the node to override the master's size. |
+| `PageBorderWidth` | `0.5 x 0.5` | Margin in inches around the finished drawing. |
+
+This example lays the graph out left to right with routed connectors:
+
+```powershell
+Import-Module Visio
+
+$d = New-Object VisioAutomation.Models.Layouts.DirectedGraph.DirectedGraphLayout
+$n1 = $d.AddNode("1", "Node1", "BASIC_U.VSS", "Rectangle")
+$n2 = $d.AddNode("2", "Node2", "BASIC_U.VSS", "Rectangle")
+$n3 = $d.AddNode("3", "Node3", "BASIC_U.VSS", "Rectangle")
+$c1 = $d.AddEdge("4", $n1, $n2, "", [VisioAutomation.Models.ConnectorType]::Straight)
+$c2 = $d.AddEdge("5", $n2, $n3, "", [VisioAutomation.Models.ConnectorType]::Straight)
+
+New-VisioApplication
+New-VisioDocument
+$p = New-VisioPage
+
+$renderer = New-Object VisioAutomation.Models.Layouts.DirectedGraph.MsaglRenderer
+$renderer.LayoutOptions.Direction = [VisioAutomation.Models.Layouts.DirectedGraph.MsaglDirection]::LeftToRight
+$renderer.LayoutOptions.UseDynamicConnectors = $false
+$renderer.Render($p, $d)
+```
+
+For the full object model, see [Directed graph](https://saveenr.gitbook.io/visioautomation/models/directed-graph) in the VisioAutomation docs.
+
 ## Adding custom properties to nodes
 
 Each node returned from `$d.AddNode(...)` exposes a `CustomProperties` dictionary you can populate before rendering. The dictionary's values are `CustomPropertyCells` objects, the same record type used by the `Set-VisioCustomProperty` cmdlet.
