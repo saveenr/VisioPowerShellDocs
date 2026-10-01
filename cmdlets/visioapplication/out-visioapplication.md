@@ -37,6 +37,17 @@ All five parameters accept pipeline input.
 
 The cmdlet throws if no Visio application is currently bound.
 
+## Where the output goes
+
+The five parameter sets do not all render to the same place:
+
+| Input | Where it is drawn |
+| --- | --- |
+| `-DirectedGraphDocument` | Into a **new document** created from the document's template, with one page per layout in the graph. The current document is not used. |
+| `-OrgChart`, `-GridLayout`, `-DataTableModel`, `-XmlModel` | Onto the **current page** of the active document. |
+
+A directed graph is drawn into a new document because a `DirectedGraphDocument` can hold several layouts, each rendered on its own page. If you need a single directed graph on the page you already have open, render it with `MsaglRenderer` directly; see [Directed graphs from code](../../automatic-diagrams/drawing-directed-graphs.md).
+
 ## Examples
 
 ### Render an XML directed graph
