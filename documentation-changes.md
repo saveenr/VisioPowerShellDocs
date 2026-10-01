@@ -4,6 +4,10 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-10: New-VisioDocument -Template
+
+The [New-VisioDocument](cmdlets/documents/new-visiodocument.md) page now says plainly what `-Template` does after a fix: the new document is created from the template, with its page setup, styles and docked stencils. A stencil passed to `-Template` is rejected. In module 4.7.3 and earlier the template was opened as a separate docked stencil beside a blank drawing, and the page notes that and how to move a script to `-Stencil` ([#229](https://github.com/saveenr/VisioAutomation/issues/229)). The change is unreleased, so the wording should become a plain version statement when the next module release ships.
+
 ## 2026-10: Get-VisioPage -ID and -Index
 
 The [Get-VisioPage](cmdlets/pages/get-visiopage.md) page now describes `-ID` as a real Visio page ID, which is what it always said, and documents the new `-Index` parameter for positions (counting from 1). In module 4.7.3 and earlier, `-ID` silently treated its numbers as positions, so the page carries a note on how to move a script from `-ID` to `-Index` ([#232](https://github.com/saveenr/VisioAutomation/issues/232)). The behavior change is in an unreleased version, so the wording should become a plain version statement when the next module release ships.
