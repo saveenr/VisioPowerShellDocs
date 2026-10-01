@@ -10,15 +10,16 @@ These versions are documented in [`VisioPowerShell/CHANGELOG.md`](https://github
 
 | Module version | Released | PowerShell host | Bundled DLL TFM | Visio PIA baseline | Bundled VisioAutomation2010 | Release notes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `4.7.3` | 2026-09-30 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.1.0` (matching commit) | [4.7.3 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#473---2026-09-30) |
 | `4.7.2` | 2026-05-06 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.0.0` (matching commit) | [4.7.2 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#472---2026-05-06) |
 | `4.7.0` | 2026-05-06 | Windows PowerShell 5.1; PowerShell 7+ via the compatibility shim | `net452` | Visio 2010 PIA (v14) | `3.0.0` (matching commit) | [4.7.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#470---2026-05-06) |
 | `4.6.1` | 2026-05-03 | Windows PowerShell 5.1; PowerShell 7+ via the compatibility shim | `net452` | Visio 2010 PIA (v14) | `2.6.0` (matching commit; tag only, not on nuget.org) | [4.6.1 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#461---2026-05-03) |
 
-`4.7.2` is the current published release on [PSGallery](https://www.powershellgallery.com/packages/Visio).
+`4.7.3` is the current published release on [PSGallery](https://www.powershellgallery.com/packages/Visio).
 
 ### About the `Visio.psd1` `PowerShellVersion = '2.0'` claim
 
-Historical release manifests declare `PowerShellVersion = '2.0'` and `CLRVersion = '4.0'`. These declarations predate the move to `net452` binaries. Current source has corrected the manifest to `PowerShellVersion = '5.1'` and removed the stale CLR declaration; this change is recorded under `[Unreleased]` in the module changelog. Use Windows PowerShell 5.1 for the verified automation workflow. The shipping assemblies still target .NET Framework 4.5.2.
+Release manifests before 4.7.3 declare `PowerShellVersion = '2.0'` and `CLRVersion = '4.0'`. These declarations predate the move to `net452` binaries. From 4.7.3 the manifest declares `PowerShellVersion = '5.1'` and no longer declares a CLR version; this change is recorded in the [4.7.3 changelog entry](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#473---2026-09-30). Use Windows PowerShell 5.1 for the verified automation workflow. The shipping assemblies still target .NET Framework 4.5.2.
 
 ## Pre-changelog era
 

@@ -34,8 +34,8 @@ The layout is controlled by the `LayoutOptions` of the renderer. When you call `
 | `ScalingFactor` | `14` | Converts between inches and the layout engine's units. Node sizes are multiplied by it before layout, but the engine's own spacing is fixed, so a larger value gives tighter gaps relative to node size and a smaller value gives looser spacing. |
 | `DefaultShapeSize` | `1.0 x 0.75` | A fallback node size in inches. In practice it does not apply: a node with no `Size` is laid out and drawn at the size of its master. Set `Size` on the node to override the master's size. |
 | `PageBorderWidth` | `0.5 x 0.5` | Margin in inches around the finished drawing. |
-| `EdgeLabelBoxSize` | `1.0 x 0.5` | Space in inches reserved for each edge's label, for every edge whether or not it has a label. Smaller values give tighter gaps between layers. Unreleased; see [Tightening the layout](#tightening-the-layout). |
-| `LayerSeparation` | `$null` | Minimum distance in inches between layers. `$null` uses the layout engine's own default. Unreleased; see [Tightening the layout](#tightening-the-layout). |
+| `EdgeLabelBoxSize` | `1.0 x 0.5` | Space in inches reserved for each edge's label, for every edge whether or not it has a label. Smaller values give tighter gaps between layers. Needs Visio PowerShell 4.7.3 or later; see [Tightening the layout](#tightening-the-layout). |
+| `LayerSeparation` | `$null` | Minimum distance in inches between layers. `$null` uses the layout engine's own default. Needs Visio PowerShell 4.7.3 or later; see [Tightening the layout](#tightening-the-layout). |
 
 This example lays the graph out left to right with routed connectors:
 
@@ -61,7 +61,7 @@ $renderer.Render($p, $d)
 
 ## Tightening the layout
 
-`EdgeLabelBoxSize` and `LayerSeparation` are in current source and are an unreleased addition after VisioAutomation NuGet 3.0.0. A Visio PowerShell module built on the 3.0.0 library does not have these properties, and setting them there fails.
+`EdgeLabelBoxSize` and `LayerSeparation` need Visio PowerShell 4.7.3 or later, which bundles VisioAutomation 3.1.0. Earlier modules do not have these properties, and setting them there fails.
 
 Every edge reserves room for a label whether or not it has one, which widens the gaps between layers. Shrinking `EdgeLabelBoxSize` reclaims that space, and `LayerSeparation` sets the minimum distance between layers directly. This lays the left-to-right graph out more tightly:
 
