@@ -5,6 +5,7 @@
 ```
 $xmldoc = @"
 <directedgraph>
+  <page>
   <renderoptions
     usedynamicconnectors="false"
     scalingfactor="20" />
