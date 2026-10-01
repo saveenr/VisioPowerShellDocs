@@ -2,7 +2,7 @@
 
 A `GridLayout` places shapes in rows and columns. You choose the master to use, the number of columns and rows and a default cell size, then set the text of each cell and pass the layout to [`Out-VisioApplication`](../cmdlets/visioapplication/out-visioapplication.md).
 
-Unlike a [data table](drawing-data-tables.md), a grid lets you set the width of each column and the height of each row.
+A [data table](drawing-data-tables.md) gives every cell the same size; a grid lets you set the width of each column and the height of each row, and the text and formatting of each cell.
 
 ```powershell
 Import-Module Visio
