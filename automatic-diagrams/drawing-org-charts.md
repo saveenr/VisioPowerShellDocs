@@ -1,6 +1,6 @@
 # Org charts from XML
 
-
+`Out-VisioApplication` needs an attached Visio application; otherwise it throws "A Visio Application Instance is not attached". The org chart is drawn into a new document created from the org chart template, not onto the current page.
 
 ```
 $xmldoc = @"
@@ -21,6 +21,3 @@ $model | Out-VisioApplication
 ```
 
 ![With Visio 2013 and above the Org Chart stencil gives not quite correct results](../.gitbook/assets/snap00009.png)
-
-```
-```

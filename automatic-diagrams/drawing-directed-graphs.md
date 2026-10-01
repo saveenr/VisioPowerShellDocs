@@ -21,6 +21,8 @@ $renderer.LayoutOptions = $options
 $renderer.Render($p, $d)
 ```
 
+Render draws onto the page you pass it. To draw a loaded `DirectedGraphDocument` (for example the output of `Import-VisioModel`) use `Out-VisioApplication` instead. It needs an attached Visio application (run `New-VisioApplication` first; otherwise it throws "A Visio Application Instance is not attached"). It draws into a new document created from the document's template (the default template), with one page per `<page>` element, not onto the current page.
+
 ## Adding custom properties to nodes
 
 Each node returned from `$d.AddNode(...)` exposes a `CustomProperties` dictionary you can populate before rendering. The dictionary's values are `CustomPropertyCells` objects, the same record type used by the `Set-VisioCustomProperty` cmdlet.
