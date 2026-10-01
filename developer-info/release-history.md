@@ -1,5 +1,7 @@
 # Release history
 
+**Version 4.8.0** (2026/10/01) Adds `Get-VisioPage -Index` for positions in the document. `Get-VisioPage -ID` is now a real Visio page ID (use `-Index` for positions), and `New-VisioDocument -Template` creates the document from the template. Fixes `Format-VisioPage -Width` / `-Height` and the boolean and sort-key parameters of `New-VisioHyperlink`. Bundles VisioAutomation 3.2.0. Versions 4.7.0 to 4.7.3 are described in the [module changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md).
+
 **Version 4.6.1** (2026/05/03) First release from the 2026 refresh. Bug fixes: `Lock-VisioShape` / `Unlock-VisioShape` switches now actually bind (were silently ignored); `Export-VisioShape` no longer trips on its inverted file-existence check; `New-VisioShape` polyline / Bezier minimum-point validation actually throws. Bundled DLLs target .NET Framework 4.5.2 (was 4.5). See [`CHANGELOG.md`](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md) for the full list.
 
 **Version 4.4.0** (2021/11/22) Added cmdlets to simplify creation of Geometric primitives

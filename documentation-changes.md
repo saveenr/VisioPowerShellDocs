@@ -4,6 +4,10 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-10: Visio PowerShell 4.8.0 release sweep
+
+Visio PowerShell 4.8.0 shipped. The notes on [Get-VisioPage](cmdlets/pages/get-visiopage.md), [New-VisioDocument](cmdlets/documents/new-visiodocument.md), [Drawing data tables](automatic-diagrams/drawing-data-tables.md) and [Drawing XML models](automatic-diagrams/drawing-xml-models.md) that described their behavior as "after 4.7.3" are now plain version statements, the [Version compatibility](developer-info/version-compatibility.md) page has a 4.8.0 row, and the [Release history](developer-info/release-history.md) page has a 4.8.0 entry.
+
 ## 2026-10: New-VisioDocument -Template
 
 The [New-VisioDocument](cmdlets/documents/new-visiodocument.md) page now says plainly what `-Template` does after a fix: the new document is created from the template, with its page setup, styles and docked stencils. A stencil passed to `-Template` is rejected. In module 4.7.3 and earlier the template was opened as a separate docked stencil beside a blank drawing, and the page notes that and how to move a script to `-Stencil` ([#229](https://github.com/saveenr/VisioAutomation/issues/229)). The change is unreleased, so the wording should become a plain version statement when the next module release ships.
