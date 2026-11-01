@@ -4,6 +4,10 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-11: Visio PowerShell 5.0.0 release
+
+Visio PowerShell 5.0.0 shipped. It requires .NET Framework 4.7.2 on the host. The [Version compatibility](developer-info/version-compatibility.md) page has the new row and a note for older images, and the [Release history](developer-info/release-history.md) has the 5.0.0 entry, including the change that validation failures in eight cmdlets now stop the cmdlet even without `$ErrorActionPreference = 'Stop'`. The `4.8.0` changelog link on the compatibility page is also corrected.
+
 ## 2026-10: Visio PowerShell 4.8.0 release sweep
 
 Visio PowerShell 4.8.0 shipped. The notes on [Get-VisioPage](cmdlets/pages/get-visiopage.md), [New-VisioDocument](cmdlets/documents/new-visiodocument.md), [Drawing data tables](automatic-diagrams/drawing-data-tables.md) and [Drawing XML models](automatic-diagrams/drawing-xml-models.md) that described their behavior as "after 4.7.3" are now plain version statements, the [Version compatibility](developer-info/version-compatibility.md) page has a 4.8.0 row, and the [Release history](developer-info/release-history.md) page has a 4.8.0 entry.
