@@ -24,7 +24,7 @@ Get-VisioPage [-ActivePage] [-Document <Document>]
 | --- | --- | --- | --- | --- |
 | `-Name` | `String[]` | No (positional) | pagebyname | One or more page names. Wildcards (`*`, `?`) are supported. |
 | `-ID` | `Int32[]` | No | pagebyid | One or more numeric Visio page IDs (`Page.ID`). An ID is not a position: the first page of a new document has ID 0, and a page added later gets the next unused ID. Read IDs from `$page.ID` or from the `PageID` column of `Get-VisioPageCells`. |
-| `-Index` | `Int32[]` | No | pagebyindex | One or more positions in the document, counting from 1 (the first page is 1, matching Visio's own page numbering and `Page.Index`). Added in an unreleased change after 4.7.3. |
+| `-Index` | `Int32[]` | No | pagebyindex | One or more positions in the document, counting from 1 (the first page is 1, matching Visio's own page numbering and `Page.Index`). Added in 4.8.0. |
 | `-ActivePage` | `SwitchParameter` | No | active | Return only the active page. |
 | `-Document` | `Document` | No | All | The document to search. If omitted, the active document is used. |
 
@@ -68,7 +68,7 @@ $first = Get-VisioPage -Index 1
 $first_and_third = Get-VisioPage -Index 1,3
 ```
 
-> **`-ID` changed after 4.7.3.** In 4.7.3 and earlier, `-ID` silently treated its numbers as positions in the document, so a real page ID gave the wrong page or an error (`-ID 0` failed even though the first page of a new document has ID 0). In releases after 4.7.3 `-ID` is a real page ID lookup, as this page always described, and `-Index` is the way to ask for a position. If a script used `-ID 2` to mean "the second page", change it to `-Index 2` ([#232](https://github.com/saveenr/VisioAutomation/issues/232)).
+> **`-ID` changed in 4.8.0.** In 4.7.3 and earlier, `-ID` silently treated its numbers as positions in the document, so a real page ID gave the wrong page or an error (`-ID 0` failed even though the first page of a new document has ID 0). From 4.8.0, `-ID` is a real page ID lookup, as this page always described, and `-Index` is the way to ask for a position. If a script used `-ID 2` to mean "the second page", change it to `-Index 2` ([#232](https://github.com/saveenr/VisioAutomation/issues/232)).
 
 ### Switch the active page
 

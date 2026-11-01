@@ -10,16 +10,18 @@ These versions are documented in [`VisioPowerShell/CHANGELOG.md`](https://github
 
 | Module version | Released | PowerShell host | Bundled DLL TFM | Visio PIA baseline | Bundled VisioAutomation2010 | Release notes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `5.0.0` | 2026-11-01 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net472` | Visio 2010 PIA (v14) | `4.0.0` (matching commit) | [5.0.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#500---2026-11-01) |
+| `4.8.0` | 2026-10-01 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.2.0` (matching commit) | [4.8.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#480---2026-10-01) |
 | `4.7.3` | 2026-09-30 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.1.0` (matching commit) | [4.7.3 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#473---2026-09-30) |
 | `4.7.2` | 2026-05-06 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.0.0` (matching commit) | [4.7.2 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#472---2026-05-06) |
 | `4.7.0` | 2026-05-06 | Windows PowerShell 5.1; PowerShell 7+ via the compatibility shim | `net452` | Visio 2010 PIA (v14) | `3.0.0` (matching commit) | [4.7.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#470---2026-05-06) |
 | `4.6.1` | 2026-05-03 | Windows PowerShell 5.1; PowerShell 7+ via the compatibility shim | `net452` | Visio 2010 PIA (v14) | `2.6.0` (matching commit; tag only, not on nuget.org) | [4.6.1 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#461---2026-05-03) |
 
-`4.7.3` is the current published release on [PSGallery](https://www.powershellgallery.com/packages/Visio).
+`5.0.0` is the current published release on [PSGallery](https://www.powershellgallery.com/packages/Visio). It requires .NET Framework 4.7.2 on the host. That is built in to Windows 10 version 1809 and Windows Server 2019 and later; on older images, install .NET Framework 4.7.2 first, or stay on `4.8.0`.
 
 ### About the `Visio.psd1` `PowerShellVersion = '2.0'` claim
 
-Release manifests before 4.7.3 declare `PowerShellVersion = '2.0'` and `CLRVersion = '4.0'`. These declarations predate the move to `net452` binaries. From 4.7.3 the manifest declares `PowerShellVersion = '5.1'` and no longer declares a CLR version; this change is recorded in the [4.7.3 changelog entry](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#473---2026-09-30). Use Windows PowerShell 5.1 for the verified automation workflow. The shipping assemblies still target .NET Framework 4.5.2.
+Release manifests before 4.7.3 declare `PowerShellVersion = '2.0'` and `CLRVersion = '4.0'`. These declarations predate the move to `net452` binaries. From 4.7.3 the manifest declares `PowerShellVersion = '5.1'` and no longer declares a CLR version; this change is recorded in the [4.7.3 changelog entry](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#473---2026-09-30). Use Windows PowerShell 5.1 for the verified automation workflow. The shipping assemblies target .NET Framework 4.5.2 up to module 4.8.0, and .NET Framework 4.7.2 from 5.0.0.
 
 ## Pre-changelog era
 
@@ -43,7 +45,7 @@ For the exact set of tags and their dates see the repo's [release tags](https://
 
 ## Future TFM moves
 
-The bundled libraries' minimum target framework will rise from `net452` to `net472` once Windows 10 LTSB 2016 leaves Extended Support on **2026-10-13**. The change will surface in a future module release as a higher .NET Framework requirement on the host. Modern Windows installs already have `net472` available, so the practical impact is on locked-down enterprise images.
+The bundled libraries moved from `net452` to `net472` in module `5.0.0`, after Windows 10 LTSB 2016 left Extended Support on 2026-10-13. Modern Windows installs already include .NET Framework 4.7.2, so the practical impact is on locked-down enterprise images that are older than Windows 10 version 1809.
 
 ## See also
 

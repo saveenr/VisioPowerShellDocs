@@ -22,7 +22,7 @@ This draws a top node labelled `root` with `child1` and `child2` below it, and `
 * The tree is drawn on the **current page** of the active document. A Visio application and document must already exist.
 * Only **element names** are drawn. Attributes, text content, comments and processing instructions are not.
 * The top node is the document element, labelled with its name (`root` above); the nodes below it are its child elements.
-* This applies to Visio PowerShell releases after 4.7.3, because the bundled library change is unreleased. In 4.7.3 and earlier the top node is labelled `#document` and the document element's own name is not drawn.
+* This applies from Visio PowerShell 4.8.0, which bundles the NuGet 3.2.0 library. In 4.7.3 and earlier the top node is labelled `#document` and the document element's own name is not drawn.
 
 This is different from the [directed graph XML](directed-graphs-from-xml/README.md) and [org chart XML](drawing-org-charts.md) formats, which describe a diagram and are loaded with `Import-VisioModel`. An `XmlModel` is built from any XML document and only visualizes its shape.
 
