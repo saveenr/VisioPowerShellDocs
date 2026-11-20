@@ -14,7 +14,7 @@ Out-VisioApplication [-OrgChart] <OrgChartDocument>
 Out-VisioApplication [-GridLayout] <GridLayout>
 
 # Directed graph
-Out-VisioApplication [-DirectedGraphDocument] <DirectedGraphDocument>
+Out-VisioApplication [-DirectedGraphDocument] <DirectedGraphDocument> [-DirectedGraphStyling <DirectedGraphStyling>]
 
 # Data-table model
 Out-VisioApplication [-DataTableModel] <DataTableModel>
@@ -32,6 +32,7 @@ All five parameters accept pipeline input.
 | `-OrgChart` | `OrgChartDocument` | Yes | orgchart | An org-chart document model. |
 | `-GridLayout` | `GridLayout` | Yes | grid | A grid-layout model. |
 | `-DirectedGraphDocument` | `DirectedGraphDocument` | Yes | directedgraph | A directed-graph document model. |
+| `-DirectedGraphStyling` | `DirectedGraphStyling` | No | directedgraph | The master and stencil used for the edges (connectors). Defaults to the `Dynamic Connector` master from `connec_u.vss`. Only valid with `-DirectedGraphDocument`. Added in module 5.1.0. |
 | `-DataTableModel` | `DataTableModel` | Yes | datatable | A data-table model. |
 | `-XmlModel` | `XmlModel` | Yes | systemxmldoc | An XML-document model. |
 
@@ -44,7 +45,8 @@ The five parameter sets do not all render to the same place:
 | Input | Where it is drawn |
 | --- | --- |
 | `-DirectedGraphDocument` | Into a **new document** created from the document's template, with one page per layout in the graph. The current document is not used. |
-| `-OrgChart`, `-GridLayout`, `-DataTableModel`, `-XmlModel` | Onto the **current page** of the active document. |
+| `-OrgChart` | Into a **new document** created from Visio's Organization Chart template. The current document is not used, and no document needs to be open. Before module 5.1.0, `-OrgChart` failed with an error when no document and page were open. |
+| `-GridLayout`, `-DataTableModel`, `-XmlModel` | Onto the **current page** of the active document. |
 
 A directed graph is drawn into a new document because a `DirectedGraphDocument` can hold several layouts, each rendered on its own page. If you need a single directed graph on the page you already have open, render it with `MsaglRenderer` directly; see [Directed graphs from code](../../automatic-diagrams/drawing-directed-graphs.md).
 
@@ -55,6 +57,19 @@ A directed graph is drawn into a new document because a `DirectedGraphDocument` 
 ```powershell
 $dgdoc = Import-VisioModel "graph.xml"
 $dgdoc | Out-VisioApplication
+```
+
+### Draw a directed graph with a different edge master
+
+Added in module 5.1.0. `DirectedGraphStyling` has two fields, `EdgeMasterName` and `EdgeStencilName`. Set them to use another connector master for every edge:
+
+```powershell
+$styling = New-Object VisioAutomation.Models.Layouts.DirectedGraph.DirectedGraphStyling
+$styling.EdgeStencilName = "connec_u.vss"
+$styling.EdgeMasterName = "Dynamic Connector"
+
+$dgdoc = Import-VisioModel "graph.xml"
+$dgdoc | Out-VisioApplication -DirectedGraphStyling $styling
 ```
 
 ### Render an org chart
