@@ -4,6 +4,10 @@ This page summarizes notable changes to the **Visio PowerShell** documentation s
 
 For the underlying module's release notes, see [Release history](developer-info/release-history.md).
 
+## 2026-11: Visio PowerShell 5.1.0 release
+
+Visio PowerShell 5.1.0 shipped. The [Out-VisioApplication](cmdlets/visioapplication/out-visioapplication.md) page now says the `-DirectedGraphStyling` parameter and the open-document change for `-OrgChart` are in 5.1.0 (it said they were unreleased), and its output table now shows that `-OrgChart` draws into a new document. The [Version compatibility](developer-info/version-compatibility.md) page and the [Release history](developer-info/release-history.md) have the 5.1.0 entries.
+
 ## 2026-11: Visio PowerShell 5.0.0 release
 
 Visio PowerShell 5.0.0 shipped. It requires .NET Framework 4.7.2 on the host. The [Version compatibility](developer-info/version-compatibility.md) page has the new row and a note for older images, and the [Release history](developer-info/release-history.md) has the 5.0.0 entry, including the change that validation failures in eight cmdlets now stop the cmdlet even without `$ErrorActionPreference = 'Stop'`. The `4.8.0` changelog link on the compatibility page is also corrected.

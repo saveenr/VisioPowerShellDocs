@@ -10,6 +10,7 @@ These versions are documented in [`VisioPowerShell/CHANGELOG.md`](https://github
 
 | Module version | Released | PowerShell host | Bundled DLL TFM | Visio PIA baseline | Bundled VisioAutomation2010 | Release notes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `5.1.0` | 2026-11-20 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net472` | Visio 2010 PIA (v14) | `5.0.0` (matching commit) | [5.1.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#510---2026-11-20) |
 | `5.0.0` | 2026-11-01 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net472` | Visio 2010 PIA (v14) | `4.0.0` (matching commit) | [5.0.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#500---2026-11-01) |
 | `4.8.0` | 2026-10-01 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.2.0` (matching commit) | [4.8.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#480---2026-10-01) |
 | `4.7.3` | 2026-09-30 | Windows PowerShell 5.1; PowerShell 7+ via the [Windows PowerShell compatibility shim](https://learn.microsoft.com/powershell/scripting/whats-new/module-compatibility) | `net452` | Visio 2010 PIA (v14) | `3.1.0` (matching commit) | [4.7.3 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#473---2026-09-30) |
@@ -17,7 +18,7 @@ These versions are documented in [`VisioPowerShell/CHANGELOG.md`](https://github
 | `4.7.0` | 2026-05-06 | Windows PowerShell 5.1; PowerShell 7+ via the compatibility shim | `net452` | Visio 2010 PIA (v14) | `3.0.0` (matching commit) | [4.7.0 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#470---2026-05-06) |
 | `4.6.1` | 2026-05-03 | Windows PowerShell 5.1; PowerShell 7+ via the compatibility shim | `net452` | Visio 2010 PIA (v14) | `2.6.0` (matching commit; tag only, not on nuget.org) | [4.6.1 changelog](https://github.com/saveenr/VisioAutomation/blob/master/VisioAutomation_2010/VisioPowerShell/CHANGELOG.md#461---2026-05-03) |
 
-`5.0.0` is the current published release on [PSGallery](https://www.powershellgallery.com/packages/Visio). It requires .NET Framework 4.7.2 on the host. That is built in to Windows 10 version 1809 and Windows Server 2019 and later; on older images, install .NET Framework 4.7.2 first, or stay on `4.8.0`.
+`5.1.0` is the current published release on [PSGallery](https://www.powershellgallery.com/packages/Visio). Like `5.0.0`, it requires .NET Framework 4.7.2 on the host. That is built in to Windows 10 version 1809 and Windows Server 2019 and later; on older images, install .NET Framework 4.7.2 first, or stay on `4.8.0`.
 
 ### About the `Visio.psd1` `PowerShellVersion = '2.0'` claim
 
