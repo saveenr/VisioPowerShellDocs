@@ -14,7 +14,7 @@ Out-VisioApplication [-OrgChart] <OrgChartDocument>
 Out-VisioApplication [-GridLayout] <GridLayout>
 
 # Directed graph
-Out-VisioApplication [-DirectedGraphDocument] <DirectedGraphDocument>
+Out-VisioApplication [-DirectedGraphDocument] <DirectedGraphDocument> [-DirectedGraphStyling <DirectedGraphStyling>]
 
 # Data-table model
 Out-VisioApplication [-DataTableModel] <DataTableModel>
@@ -32,6 +32,7 @@ All five parameters accept pipeline input.
 | `-OrgChart` | `OrgChartDocument` | Yes | orgchart | An org-chart document model. |
 | `-GridLayout` | `GridLayout` | Yes | grid | A grid-layout model. |
 | `-DirectedGraphDocument` | `DirectedGraphDocument` | Yes | directedgraph | A directed-graph document model. |
+| `-DirectedGraphStyling` | `DirectedGraphStyling` | No | directedgraph | The master and stencil used for the edges (connectors). Defaults to the `Dynamic Connector` master from `connec_u.vss`. Only valid with `-DirectedGraphDocument`. Unreleased: added after module 5.0.0. |
 | `-DataTableModel` | `DataTableModel` | Yes | datatable | A data-table model. |
 | `-XmlModel` | `XmlModel` | Yes | systemxmldoc | An XML-document model. |
 
@@ -55,6 +56,19 @@ A directed graph is drawn into a new document because a `DirectedGraphDocument` 
 ```powershell
 $dgdoc = Import-VisioModel "graph.xml"
 $dgdoc | Out-VisioApplication
+```
+
+### Draw a directed graph with a different edge master
+
+Unreleased: added after module 5.0.0. `DirectedGraphStyling` has two fields, `EdgeMasterName` and `EdgeStencilName`. Set them to use another connector master for every edge:
+
+```powershell
+$styling = New-Object VisioAutomation.Models.Layouts.DirectedGraph.DirectedGraphStyling
+$styling.EdgeStencilName = "connec_u.vss"
+$styling.EdgeMasterName = "Dynamic Connector"
+
+$dgdoc = Import-VisioModel "graph.xml"
+$dgdoc | Out-VisioApplication -DirectedGraphStyling $styling
 ```
 
 ### Render an org chart
