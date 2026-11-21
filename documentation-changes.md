@@ -10,17 +10,14 @@ For the module's own release notes, see [Release history](developer-info/release
   * `-DirectedGraphStyling` is now marked as added in 5.1.0 (it was marked unreleased).
   * The output table now shows that `-OrgChart` draws into a **new document**.
   * `-OrgChart` no longer needs an open document (5.1.0).
-* [Version compatibility](developer-info/version-compatibility.md): new 5.1.0 row.
-* [Release history](developer-info/release-history.md): new 5.1.0 entry.
+* Updated [Version compatibility](developer-info/version-compatibility.md) and [Release history](developer-info/release-history.md) for 5.1.0.
 
 ## 2026-11: Visio PowerShell 5.0.0 release
 
 * The module now requires **.NET Framework 4.7.2** on the host.
-* [Version compatibility](developer-info/version-compatibility.md)
-  * New 5.0.0 row.
-  * New note for older Windows images.
-  * Fixed the 4.8.0 changelog link.
-* [Release history](developer-info/release-history.md): new 5.0.0 entry, including that validation failures in eight cmdlets now stop the cmdlet even without `$ErrorActionPreference = 'Stop'`.
+* Updated [Version compatibility](developer-info/version-compatibility.md) and [Release history](developer-info/release-history.md) for 5.0.0.
+  * Version compatibility also has a note for older Windows images and a corrected 4.8.0 changelog link.
+  * Release history notes that validation failures in eight cmdlets now stop the cmdlet even without `$ErrorActionPreference = 'Stop'`.
 
 ## 2026-10: Visio PowerShell 4.8.0 release sweep
 
@@ -29,8 +26,7 @@ For the module's own release notes, see [Release history](developer-info/release
   * [New-VisioDocument](cmdlets/documents/new-visiodocument.md)
   * [Drawing data tables](automatic-diagrams/drawing-data-tables.md)
   * [Drawing XML models](automatic-diagrams/drawing-xml-models.md)
-* [Version compatibility](developer-info/version-compatibility.md): new 4.8.0 row.
-* [Release history](developer-info/release-history.md): new 4.8.0 entry.
+* Updated [Version compatibility](developer-info/version-compatibility.md) and [Release history](developer-info/release-history.md) for 4.8.0.
 
 ## 2026-10: New-VisioDocument -Template
 
