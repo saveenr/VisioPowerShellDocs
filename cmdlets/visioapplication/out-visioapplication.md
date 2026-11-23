@@ -72,6 +72,8 @@ $dgdoc = Import-VisioModel "graph.xml"
 $dgdoc | Out-VisioApplication -DirectedGraphStyling $styling
 ```
 
+Unreleased: added after module 5.1.0. If the document carries its own connector styling, `Out-VisioApplication` uses that instead of `-DirectedGraphStyling`. In directed graph XML, set `connectormaster` and `connectorstencil` on `<documentoptions>`; a connector's own `master` and `stencil` attributes win over both. Use `-DirectedGraphStyling` for documents that do not set their own.
+
 ### Render an org chart
 
 ```powershell
